@@ -1,1 +1,8 @@
-site_name: My Docs
+site_name: R4A APIs
+nav:
+  - Home: index.md
+  - Messages: messages.md
+  - Robot API: robotapi.md
+  - Cloud API: cloudapi.md
+  - Generic API: genericapi.md
+  - Memory: memory.md
