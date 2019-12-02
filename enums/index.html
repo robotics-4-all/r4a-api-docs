@@ -115,11 +115,354 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#introduction">Introduction</a></li>
+        <li class="main "><a href="#devices-enum">Devices enum</a></li>
+        <li class="main "><a href="#deviceplacement-enum">DevicePlacement enum</a></li>
+        <li class="main "><a href="#directions-enum">Directions enum</a></li>
+        <li class="main "><a href="#detectiontype-enum">DetectionType enum</a></li>
+        <li class="main "><a href="#motiontype-enum">MotionType enum</a></li>
+        <li class="main "><a href="#languages-enum">Languages enum</a></li>
+        <li class="main "><a href="#sentiments-enum">Sentiments enum</a></li>
+        <li class="main "><a href="#colors-enum">Colors enum</a></li>
+        <li class="main "><a href="#sex-enum">Sex enum</a></li>
+        <li class="main "><a href="#resolutions-enum">Resolutions enum</a></li>
+        <li class="main "><a href="#format-enum">Format enum</a></li>
+        <li class="main "><a href="#sonars-enum">Sonars enum</a></li>
+        <li class="main "><a href="#tofs-enum">Tofs enum</a></li>
+        <li class="main "><a href="#irs-enum">Irs enum</a></li>
+        <li class="main "><a href="#tactile-enum">Tactile enum</a></li>
+        <li class="main "><a href="#tekvariables-enum">TekVariables enum</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>Under construction...</p></div>
+<h2 id="introduction">Introduction</h2>
+<p>R4A APIs contain a lot of variables, as well as enumerations, to handle specific values. Their description follows. All of these are called as such:</p>
+<p>If the name of the class is <code>Class</code> and the member is <code>member</code>, you can get the specific item by <code>Class.member</code>.</p>
+<h2 id="devices-enum">Devices enum</h2>
+<p>Holds the different device types (sensors / effectors) that R4A API enables. The possible items are:</p>
+<ul>
+<li>Devices.SONAR</li>
+<li>Devices.IR</li>
+<li>Devices.TOF</li>
+<li>Devices.ENV</li>
+<li>Devices.IMU</li>
+<li>Devices.MICROPHONE</li>
+<li>Devices.SPEAKERS</li>
+<li>Devices.CAMERA</li>
+<li>Devices.MOTION</li>
+<li>Devices.PAN_TILT</li>
+<li>Devices.LED</li>
+<li>Devices.LINE_FOLLOWER</li>
+<li>Devices.SCREEN</li>
+<li>Devices.TOUCH_SCREEN</li>
+<li>Devices.ENCODER</li>
+<li>Devices.BUTTON</li>
+<li>Devices.UNKNOWN</li>
+</ul>
+<p><code>Devices</code> enum offers the <code>getTypeFromString</code> static function that takes as input one string and returns the type. An example follows:</p>
+<pre><code class="python">from utilities import Devices
+
+str = &quot;SONAR&quot;
+item = Devices.getTypeFromString(str)
+print(item)
+</code></pre>
+
+<p>The result is <code>&lt;Devices.SONAR:</code>sonar<code>&gt;</code>.</p>
+<h2 id="deviceplacement-enum">DevicePlacement enum</h2>
+<p>Holds the different placements of the devices that may have on the robot. The possible places follow. For the next items, F stands for Front, L for Left, R for Right, B for Back and G for Generic.</p>
+<ul>
+<li>DevicePlacement.F</li>
+<li>DevicePlacement.FL</li>
+<li>DevicePlacement.FR</li>
+<li>DevicePlacement.B</li>
+<li>DevicePlacement.BL</li>
+<li>DevicePlacement.BR</li>
+<li>DevicePlacement.R</li>
+<li>DevicePlacement.L</li>
+<li>DevicePlacement.G1</li>
+<li>DevicePlacement.G2</li>
+<li>DevicePlacement.G3</li>
+<li>DevicePlacement.G4</li>
+<li>DevicePlacement.FRONT</li>
+<li>DevicePlacement.CENTER</li>
+<li>DevicePlacement.RIGHT</li>
+<li>DevicePlacement.LEFT</li>
+<li>DevicePlacement.BACK</li>
+<li>DevicePlacement.UNDER</li>
+<li>DevicePlacement.PAN_TILT</li>
+<li>DevicePlacement.UNKNOWN</li>
+</ul>
+<h2 id="directions-enum">Directions enum</h2>
+<p>Directions hold the different directions to be used either from sensors or effectors. The different options are:</p>
+<ul>
+<li>Directions.FORWARDS</li>
+<li>Directions.BACKWARDS</li>
+<li>Directions.LEFT</li>
+<li>Directions.RIGHT</li>
+<li>Directions.UP</li>
+<li>Directions.DOWN</li>
+<li>Directions.NEUTRAL</li>
+</ul>
+<h2 id="detectiontype-enum">DetectionType enum</h2>
+<p>This is used in order to specify input type for specific algorithms. The options here are:</p>
+<ul>
+<li>DetectionType.IMAGE</li>
+<li>DetectionType.AUDIO</li>
+</ul>
+<h2 id="motiontype-enum">MotionType enum</h2>
+<p>Holds the possible motion types of the robot or of specific parts of it. The options are:</p>
+<ul>
+<li>MotionType.BASIC</li>
+<li>MotionType.SPEED_BASED</li>
+<li>MotionType.FOLLOW_LINE</li>
+<li>MotionType.ANGLE_BASED</li>
+<li>MotionType.TIME_BASED</li>
+</ul>
+<h2 id="languages-enum">Languages enum</h2>
+<p>Holds the different languages R4A API supports. For now we have:</p>
+<ul>
+<li>Languages.EL</li>
+<li>Languages.EN</li>
+</ul>
+<h2 id="sentiments-enum">Sentiments enum</h2>
+<p>Holds the different sentiments used by the algorithms. These are:</p>
+<ul>
+<li>Sentiments.HAPPY</li>
+<li>Sentiments.SAD</li>
+<li>Sentiments.CRYING</li>
+<li>Sentiments.NEUTRAL</li>
+<li>Sentiments.DELIGHTED</li>
+</ul>
+<h2 id="colors-enum">Colors enum</h2>
+<p>Holds the different colors supported by the R4A API. There are:</p>
+<ul>
+<li>Colors.RED</li>
+<li>Colors.WHITE</li>
+<li>Colors.GREEN</li>
+<li>Colors.BLUE</li>
+<li>Colors.BLACK</li>
+<li>Colors.YELLOW</li>
+<li>Colors.MAGENTA</li>
+<li>Colors.CYAN</li>
+<li>Colors.UNKNOWN</li>
+</ul>
+<h2 id="sex-enum">Sex enum</h2>
+<p>Holds the different sexes. These are:</p>
+<ul>
+<li>Sex.MALE</li>
+<li>Sex.FEMALE</li>
+</ul>
+<h2 id="resolutions-enum">Resolutions enum</h2>
+<p>Holds the different resolutions the camera supports. These are:</p>
+<ul>
+<li>Resolutions.R_800_480</li>
+<li>Resolutions.R_640_480</li>
+</ul>
+<h2 id="format-enum">Format enum</h2>
+<p>Holds the different formats an image may have. These are:</p>
+<ul>
+<li>Format.JPG</li>
+<li>Format.PNG</li>
+</ul>
+<h2 id="sonars-enum">Sonars enum</h2>
+<p>Holds the different sonar placements (specific to TekTrain project). These are:</p>
+<ul>
+<li>Sonars.FL</li>
+<li>Sonars.FR</li>
+<li>Sonars.BR</li>
+<li>Sonars.BL</li>
+<li>Sonars.R</li>
+<li>Sonars.L</li>
+</ul>
+<h2 id="tofs-enum">Tofs enum</h2>
+<p>Holds the different Time of Flight sensor placements (specific to TekTrain project). These are:</p>
+<ul>
+<li>Tofs.F</li>
+</ul>
+<h2 id="irs-enum">Irs enum</h2>
+<p>Holds the different IR sensor placements (specific to TekTrain project). These are:</p>
+<ul>
+<li>Irs.F</li>
+<li>Irs.B</li>
+<li>Irs.R</li>
+<li>Irs.L</li>
+</ul>
+<h2 id="tactile-enum">Tactile enum</h2>
+<p>Holds the different tactile (buttons) positions (specific to TekTrain project). These are:</p>
+<ul>
+<li>Tactile.F</li>
+<li>Tactile.FL</li>
+<li>Tactile.FR</li>
+<li>Tactile.B</li>
+<li>Tactile.BL</li>
+<li>Tactile.BR</li>
+<li>Tactile.R</li>
+<li>Tactile.L</li>
+<li>Tactile.G1</li>
+<li>Tactile.G2</li>
+<li>Tactile.G3</li>
+<li>Tactile.G4</li>
+</ul>
+<h2 id="tekvariables-enum">TekVariables enum</h2>
+<p>Apart from the above enumeration, there is a large enumeration that holds all the variables that are stored in <a href="../memory/">memory</a>. All data is stored in <a href="https://redis.io/">Redis</a> and the keys the variables are stored in exist next to the variables in the list below. These variables are:</p>
+<ul>
+<li>Robot motion related<ul>
+<li>TekVariables.MOTION_DISTANCE_THRES = <code>variables.motion.distance_thres</code></li>
+<li>TekVariables.MOTION_DURATION_THRES = <code>variables.motion.duration_thres</code></li>
+<li>TekVariables.MOTION_LINEAR = <code>variables.motion.linear</code></li>
+<li>TekVariables.MOTION_ROTATIONAL = <code>variables.motion.rotational</code></li>
+<li>TekVariables.MOTION_DIRECTION = <code>variables.motion.direction</code></li>
+<li>TekVariables.MOTION_SPEED = <code>variables.motion.speed</code></li>
+<li>TekVariables.MOTION_TYPE = <code>variables.motion.type</code></li>
+</ul>
+</li>
+<li>Robot turn related<ul>
+<li>TekVariables.MOTION_TURN_TYPE = <code>variables.motion_turn.type</code></li>
+<li>TekVariables.MOTION_TURN_ANGLE = <code>variables.motion_turn.angle</code></li>
+<li>TekVariables.MOTION_TURN_DIRECTION = <code>variables.motion_turn.direction</code></li>
+<li>TekVariables.MOTION_TURN_SPEED = <code>variables.motion_turn.speed</code></li>
+<li>TekVariables.MOTION_TURN_DURATION = <code>variables.motion_turn.duration</code></li>
+</ul>
+</li>
+<li>Sleep related<ul>
+<li>TekVariables.SLEEP_DURATION = <code>variables.sleep.duration</code></li>
+</ul>
+</li>
+<li>Talk related<ul>
+<li>TekVariables.TALK_TEXTS = <code>variables.talk.texts</code></li>
+<li>TekVariables.TALK_LANGUAGE = <code>variables.talk.language</code></li>
+<li>TekVariables.TALK_VOLUME = <code>variables.talk.volume</code></li>
+</ul>
+</li>
+<li>LEDs related<ul>
+<li>TekVariables.LEDS_COLOR = <code>variables.leds.color</code></li>
+<li>TekVariables.LEDS_BRIGHTNESS = <code>variables.leds.brightness</code></li>
+</ul>
+</li>
+<li>Detect touch related<ul>
+<li>TekVariables.DETECT_TOUCH_PARTS = <code>variables.detect_touch.parts</code></li>
+<li>TekVariables.DETECT_TOUCH_DURATION = <code>variables.detect_touch.duration</code></li>
+<li>TekVariables.DETECT_TOUCH_DETECTED = <code>variables.detect_touch.detected</code></li>
+<li>TekVariables.DETECT_TOUCH_F = <code>variables.detect_touch.f</code></li>
+<li>TekVariables.DETECT_TOUCH_FL = <code>variables.detect_touch.fl</code></li>
+<li>TekVariables.DETECT_TOUCH_FR = <code>variables.detect_touch.fr</code></li>
+<li>TekVariables.DETECT_TOUCH_B = <code>variables.detect_touch.b</code></li>
+<li>TekVariables.DETECT_TOUCH_BR = <code>variables.detect_touch.br</code></li>
+<li>TekVariables.DETECT_TOUCH_BL = <code>variables.detect_touch.bl</code></li>
+<li>TekVariables.DETECT_TOUCH_L = <code>variables.detect_touch.l</code></li>
+<li>TekVariables.DETECT_TOUCH_R = <code>variables.detect_touch.r</code></li>
+<li>TekVariables.DETECT_TOUCH_G1 = <code>variables.detect_touch.g1</code></li>
+<li>TekVariables.DETECT_TOUCH_G2 = <code>variables.detect_touch.g2</code></li>
+<li>TekVariables.DETECT_TOUCH_G3 = <code>variables.detect_touch.g3</code></li>
+<li>TekVariables.DETECT_TOUCH_G4 = <code>variables.detect_touch.g4</code></li>
+<li>TekVariables.DETECT_TOUCH_PRESSED_PART = <code>variables.detect_touch.pressed_part</code></li>
+</ul>
+</li>
+<li>Camera motion related<ul>
+<li>TekVariables.CAMERA_MOTION_DIRECTION = <code>variables.camera_motion.direction</code></li>
+<li>TekVariables.CAMERA_MOTION_YAW = <code>variables.camera_motion.yaw</code></li>
+<li>TekVariables.CAMERA_MOTION_PITCH = <code>variables.camera_motion.pitch</code></li>
+</ul>
+</li>
+<li>Record sound related<ul>
+<li>TekVariables.RECORD_SOUND_NAME = <code>variables.record_sound.name</code></li>
+<li>TekVariables.RECORD_SOUND_DURATION = <code>variables.record_sound.duration</code></li>
+<li>TekVariables.RECORD_SOUND_PART = <code>variables.record_sound.part</code></li>
+</ul>
+</li>
+<li>Replay sound related<ul>
+<li>TekVariables.REPLAY_SOUND_NAME = <code>variables.replay_sound.name</code></li>
+<li>TekVariables.REPLAY_SOUND_VOLUME = <code>variables.replay_sound.volume</code></li>
+</ul>
+</li>
+<li>Display emotion related<ul>
+<li>TekVariables.DISPLAY_EMOTION_EMOTION = <code>variables.display_emotion.emotion</code></li>
+</ul>
+</li>
+<li>Weather report related:<ul>
+<li>TekVariables.WEATHER_REPORT = <code>variables.cloud.weather_report</code></li>
+</ul>
+</li>
+<li>Detect face related<ul>
+<li>TekVariables.DETECT_FACE_DURATION = <code>variables.detect_face.duration</code></li>
+<li>TekVariables.DETECT_FACE_DETECTED = <code>variables.detect_face.detected</code></li>
+<li>TekVariables.DETECT_FACE_DETECTED_FACES = <code>variables.detect_face.faces</code></li>
+<li>TekVariables.FACE_DETECTION_NFACES = <code>variables.cloud.face_detection.number</code></li>
+<li>TekVariables.FACE_DETECTION_COORDS = <code>variables.cloud.face_detection.coords</code></li>
+</ul>
+</li>
+<li>Detect age/gender related<ul>
+<li>TekVariables.AGE_DETECTION = <code>variables.cloud.age_detection</code></li>
+<li>TekVariables.GENDER_DETECTION = <code>variables.cloud.gender_detection</code></li>
+</ul>
+</li>
+<li>OCR detection related<ul>
+<li>TekVariables.OCR_DETECTION = <code>variables.cloud.ocr_detection</code></li>
+</ul>
+</li>
+<li>QR/Barcode detection related<ul>
+<li>TekVariables.QR_DETECTION = <code>variables.cloud.qr_detection</code></li>
+<li>TekVariables.BARCODE_DETECTION = <code>variables.cloud.barcode_detection</code></li>
+</ul>
+</li>
+<li>Detect sentiment related<ul>
+<li>TekVariables.DETECT_SENTIMENT_TYPE = <code>variables.detect_sentiment.type</code></li>
+<li>TekVariables.DETECT_SENTIMENT_DURATION = <code>variables.detect_sentiment.duration</code></li>
+<li>TekVariables.DETECT_SENTIMENT_DETECTED = <code>variables.detect_sentiment.detected</code></li>
+<li>TekVariables.DETECT_SENTIMENT_DETECTED_SENTIMENT = <code>variables.detect_sentiment.detected_sentiment</code></li>
+<li>TekVariables.DETECT_SENTIMENT_DETECTED_SENTIMENT_IMAGE = <code>variables.detect_sentiment.detected_sentiment.image</code></li>
+<li>TekVariables.DETECT_SENTIMENT_DETECTED_SENTIMENT_SOUND = <code>variables.detect_sentiment.detected_sentiment.sound</code></li>
+<li>TekVariables.DETECT_SENTIMENT_DETECTED_SENTIMENT_TEXT = <code>variables.detect_sentiment.detected_sentiment.text</code></li>
+</ul>
+</li>
+<li>Detect sound related<ul>
+<li>TekVariables.DETECT_SOUND_DURATION = <code>variables.detect_sound.duration</code></li>
+<li>TekVariables.DETECT_SOUND_DETECTED = <code>variables.detect_sound.detected</code></li>
+<li>TekVariables.SOUND_DETECTION = <code>variables.cloud.sound_detection</code></li>
+</ul>
+</li>
+<li>Detect motion related<ul>
+<li>TekVariables.DETECT_MOTION_DURATION = <code>variables.detect_motion.duration</code></li>
+<li>TekVariables.DETECT_MOTION_DETECTED = <code>variables.detect_motion.detected</code></li>
+</ul>
+</li>
+<li>Detect dominant color related<ul>
+<li>TekVariables.DETECT_DOMINANT_COLOR_DETECTED_COLOR = <code>variables.detect_dominant_color.color</code></li>
+<li>TekVariables.DOMINANT_COLOR_RAW = <code>variables.cloud.dominant_color.raw</code></li>
+<li>TekVariables.DOMINANT_COLOR = <code>variables.cloud.dominant_color.parsed</code></li>
+<li>TekVariables.MOTION_DETECTION = <code>variables.cloud.motion_detection</code></li>
+</ul>
+</li>
+<li>Speech to text related<ul>
+<li>TekVariables.SPEECH_TO_TEXT = <code>variables.cloud.speech_to_text</code></li>
+</ul>
+</li>
+<li>HW related<ul>
+<li>TekVariables.HW_BUTTON_PRESS = <code>variables.hw.button_press</code></li>
+<li>TekVariables.HW_CAMERA_IMAGE = <code>variables.hw.camera_image</code></li>
+<li>TekVariables.HW_ENCODER = <code>variables.hw.encoder</code></li>
+<li>TekVariables.HW_ENV_TEMPERATURE = <code>variables.hw.env.temperature</code></li>
+<li>TekVariables.HW_ENV_HUMIDITY = <code>variables.hw.env.humidity</code></li>
+<li>TekVariables.HW_ENV_PRESSURE = <code>variables.hw.env.pressure</code></li>
+<li>TekVariables.HW_ENV_GAS = <code>variables.hw.env.gas</code></li>
+<li>TekVariables.HW_ACCELERATION_X = <code>variables.hw.imu.acceleration.x</code></li>
+<li>TekVariables.HW_ACCELERATION_Y = <code>variables.hw.imu.acceleration.y</code></li>
+<li>TekVariables.HW_ACCELERATION_Z = <code>variables.hw.imu.acceleration.z</code></li>
+<li>TekVariables.HW_COMPASS_YAW = <code>variables.hw.imu.compass.yaw</code></li>
+<li>TekVariables.HW_COMPASS_PITCH = <code>variables.hw.imu.compass.pitch</code></li>
+<li>TekVariables.HW_COMPASS_ROLL = <code>variables.hw.imu.compass.roll</code></li>
+<li>TekVariables.HW_GYROSCOPE_YAW = <code>variables.hw.imu.gyro.yaw</code></li>
+<li>TekVariables.HW_GYROSCOPE_PITCH = <code>variables.hw.imu.gyro.pitch</code></li>
+<li>TekVariables.HW_GYROSCOPE_ROLL = <code>variables.hw.imu.gyro.roll</code></li>
+<li>TekVariables.HW_IR = <code>variables.hw.ir</code></li>
+<li>TekVariables.HW_SONAR = <code>variables.hw.sonar</code></li>
+<li>TekVariables.HW_TOF = <code>variables.hw.tof</code></li>
+<li>TekVariables.HW_LEDS_SET = <code>variables.hw.leds.set</code></li>
+<li>TekVariables.HW_LEDS_WIPE = <code>variables.hw.leds.wipe</code></li>
+</ul>
+</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
