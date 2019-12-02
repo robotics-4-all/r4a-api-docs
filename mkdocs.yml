@@ -2,6 +2,7 @@ site_name: R4A APIs
 nav:
   - Home: index.md
   - Utilities:
+    - Exceptions: exceptions.md
     - Messages: messages.md
     - Memory: memory.md
     - Conditions: conditions.md

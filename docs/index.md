@@ -12,3 +12,5 @@ Welcome to R4A APIs! From here you can write applications that use a device's ha
 - [Generic API](genericapi.md): Generic functionality like delays etc.
 - [FSM-like applications](nodes.md): How to write applications using an FSM-like way
 - [Examples](examples.md): Various examples
+
+Have a nice reading ;)
