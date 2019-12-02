@@ -49,8 +49,26 @@
                             <li class="active">
                                 <a href=".">Home</a>
                             </li>
-                            <li >
-                                <a href="messages/">Messages</a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="messages/">Messages</a>
+</li>
+                                    
+<li >
+    <a href="memory/">Memory</a>
+</li>
+                                    
+<li >
+    <a href="conditions/">Conditions</a>
+</li>
+                                    
+<li >
+    <a href="enums/">Enumerations</a>
+</li>
+                                </ul>
                             </li>
                             <li >
                                 <a href="robotapi/">Robot API</a>
@@ -62,7 +80,10 @@
                                 <a href="genericapi/">Generic API</a>
                             </li>
                             <li >
-                                <a href="memory/">Memory</a>
+                                <a href="nodes/">FSM-like applications</a>
+                            </li>
+                            <li >
+                                <a href="examples/">Examples</a>
                             </li>
                         </ul>
 
@@ -90,29 +111,27 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#welcome-to-mkdocs">Welcome to MkDocs</a></li>
-            <li><a href="#commands">Commands</a></li>
-            <li><a href="#project-layout">Project layout</a></li>
+        <li class="main active"><a href="#welcome">Welcome!</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="http://mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="welcome">Welcome!</h1>
+<p>Welcome to R4A APIs! From here you can write applications that use a device's hardware, cloud services and generic functionalities. This is possible via the three distinct APIs (Robot, Cloud and Generic). Furthermore, you can write higher-level apps (FSM-like) using the TekNodes module. In this documentation you may find:</p>
 <ul>
-<li>test</li>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs help</code> - Print this help message.</li>
+<li>Utilities: Various stuff, useful for writing applications. These are:<ul>
+<li><a href="messages/">Messages</a>: How to give input and take output from services/API calls.</li>
+<li><a href="memory/">Memory</a>: How to store and retrieve variables/data from device memory</li>
+<li><a href="conditions/">Conditions</a>: How to create conditions that use variables or constants</li>
+<li><a href="enums/">Enumerations</a>: What variables and enumerations are available</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+</li>
+<li><a href="robotapi/">Robot API</a>: Calls to manipulate Robots and Devices</li>
+<li><a href="cloudapi/">Cloud API</a>: Calls to get information from cloud services</li>
+<li><a href="genericapi/">Generic API</a>: Generic functionality like delays etc.</li>
+<li><a href="nodes/">FSM-like applications</a>: How to write applications using an FSM-like way</li>
+<li><a href="examples/">Examples</a>: Various examples</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
@@ -195,5 +214,5 @@ docs/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-11-28 17:49:42
+Build Date UTC : 2019-12-02 11:50:58
 -->

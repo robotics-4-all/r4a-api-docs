@@ -1,8 +1,13 @@
 site_name: R4A APIs
 nav:
   - Home: index.md
-  - Messages: messages.md
+  - Utilities:
+    - Messages: messages.md
+    - Memory: memory.md
+    - Conditions: conditions.md
+    - Enumerations: enums.md
   - Robot API: robotapi.md
   - Cloud API: cloudapi.md
   - Generic API: genericapi.md
-  - Memory: memory.md
+  - FSM-like applications: nodes.md
+  - Examples: examples.md
