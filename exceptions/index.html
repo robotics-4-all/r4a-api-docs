@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Messages - R4A APIs</title>
+        <title>Exceptions - R4A APIs</title>
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -53,12 +53,12 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../exceptions/">Exceptions</a>
+<li class="active">
+    <a href="./">Exceptions</a>
 </li>
                                     
-<li class="active">
-    <a href="./">Messages</a>
+<li >
+    <a href="../messages/">Messages</a>
 </li>
                                     
 <li >
@@ -98,12 +98,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../exceptions/">
+                                <a rel="next" href="..">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../memory/">
+                                <a rel="prev" href="../messages/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -115,74 +115,11 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#introduction">Introduction</a></li>
-        <li class="main "><a href="#inputmessage-class">InputMessage class</a></li>
-        <li class="main "><a href="#outputmessage-class">OutputMessage class</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="introduction">Introduction</h2>
-<p>There are two classes to handle input and output, which can be found in the <code>utilities</code> module. These are <code>InputMessage</code> and <code>OutputMessage</code>.</p>
-<h2 id="inputmessage-class"><code>InputMessage</code> class</h2>
-<p>You can create an input message as such:</p>
-<pre><code class="python">from utilities import InputMessage
-
-i = InputMessage()
-</code></pre>
-
-<p>Every input message contains the following:</p>
-<ul>
-<li><code>timestamp</code>: Contains the timestamp of the message's creation</li>
-<li><code>data</code>: The data. This usually is a Python dictionary.</li>
-<li><code>print()</code>: Function to print the input message</li>
-</ul>
-<p>An example follows:</p>
-<pre><code class="python">from utilities import InputMessage
-
-i = InputMessage({'duration': 3})
-i.data['another'] = 2
-i.print()
-</code></pre>
-
-<p>The output in console is:</p>
-<pre><code class="bash">Input message:
-  [1575288958.9064102] Data:  {'duration': 3, 'another': 2}
-</code></pre>
-
-<h2 id="outputmessage-class"><code>OutputMessage</code> class</h2>
-<p>Every call of the Robot, Cloud or Generic API returns an <code>OutputMessage</code>. Each output message contains:</p>
-<ul>
-<li><code>timestamp</code>: Contains the timestamp of the message's creation</li>
-<li><code>sequence</code>: A unique number that characterizes the message</li>
-<li><code>errors</code>: A list of possible errors</li>
-<li><code>logs</code>: A list of logs. Usually contains trace-back information.</li>
-<li><code>data</code>: The data that the message contains</li>
-<li><code>print()</code>: Prints the output message</li>
-</ul>
-<p>An example code that utilizes an output message is the following:</p>
-<pre><code class="python">from utilities import Devices, InputMessage
-from robot_api import RobotAPI
-
-rapi = RobotAPI()
-rapi.devicesObj.enableDevicesType(Devices.TOUCH_SCREEN)
-
-out = rapi.showOptions(InputMessage({
-    'options': ['Option 1', 'Option 2'],
-    'duration': 5
-}))
-out.print()
-</code></pre>
-
-<p>This snippet initializes a touch screen, shows 2 options and waits for 5 seconds for the user to select one. The output is:</p>
-<pre><code class="bash">Output message:
-    [1575290784.5641167] #5
-    {'reaction_time': 0.9212639331817627, 'selected': 'Option 1'}
-    Errors:
-    Logs:
-        [1575290784.5652816] setOptions @ RobotAPITouchScreenController
-        [1575290784.5658484] showOptions @ RobotAPI
-</code></pre></div>
+</div>
         </div>
 
         <footer class="col-md-12">
