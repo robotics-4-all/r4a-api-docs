@@ -115,11 +115,32 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#the-tekexception-class">The TekException class</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-</div>
+<h2 id="the-tekexception-class">The TekException class</h2>
+<p>We also have custom exceptions that handle errors that occur in the R4A API. These are <code>TekException</code> objects that exist in the <code>utilities</code> module.</p>
+<p>In order to raise an exception you can write:</p>
+<pre><code class="python">from utilities import TekException
+
+raise TekException(&quot;String that explains the error&quot;)
+</code></pre>
+
+<p>In order to catch TekExceptions you can write something like this:</p>
+<pre><code class="python">try:
+  pass
+  # Code here
+except TekException:
+  pass
+  # Catches only TekExceptions
+except Exception:
+  pass
+  # Catches all other exceptions
+</code></pre>
+
+<p>Each time a TekException is raised, a message is printed in console, containing information about which function raised the exception, in what line and what is the error message.</p></div>
         </div>
 
         <footer class="col-md-12">
