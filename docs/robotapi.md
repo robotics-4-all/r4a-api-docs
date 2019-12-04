@@ -20,27 +20,34 @@ r.devicesObj.enableDevicesType(Devices.MICROPHONE)
 
 Next, the API calls, sorted by device categories are presented.
 
+
 ## - **Speakers API**
+
+---
+
 ### RobotAPI.speak
-- texts [strings]
-- volume
-- language
+A text-to-speech algorithm is used, in order for the device to "speak" in different languages.
 
-Outputs a list of string from the speakers.
+#### Input arguments
+- `texts`: A list of arguments. These may be strings or [TekVariables](enums/#tekvariables-enum)
+- `volume`: The volume from 0 to 100
+- `language`: A [Language](enums/#languages-enum)
 
-#### Input
-An `InputMessage` such as:
+#### Examples
 ```python
-out = rapi.replaySound(InputMessage({
-    'deviceId': ID,
-    'strings': ['this', 'is', 'an', 'example'],
+import robot_api
+import utilities
+
+rapi = RobotAPI()
+
+out = rapi.speak(utilities.InputMessage({
+    'texts': ['the number', 'is', utilities.TekVariables.SLEEP_DURATION],
     'volume': 100,
-    'language': Languages.EL
+    'language': utilities.Languages.EL
 }))
 ```
-The `language` option must be an enum object, and can have the following values:
-- Languages.EL
-- Languages.EN
+
+---
 
 ### RobotAPI.replaySound
 - is_file
