@@ -1,4 +1,4 @@
-## The Memory functionality
+# The Memory
 
 In order to locally store a) all information generated from the sensors of the device, b) all input information from the app's calls and c) whatever the user that creates apps wants, we have created a key/value storage, using [Redis](https://redis.io/).
 

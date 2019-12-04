@@ -1,4 +1,4 @@
-## Introduction
+# Enumerations and Variables
 
 R4A APIs contain a lot of variables, as well as enumerations, to handle specific values. Their description follows. All of these are called as such:
 

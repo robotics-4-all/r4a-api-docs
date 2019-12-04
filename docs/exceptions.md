@@ -1,4 +1,4 @@
-## The TekException class 
+# The TekException class 
 
 We also have custom exceptions that handle errors that occur in the R4A API. These are `TekException` objects that exist in the `utilities` module.
 

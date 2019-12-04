@@ -1,4 +1,4 @@
-## Introduction
+# Input and Output messages
 
 There are two classes to handle input and output, which can be found in the `utilities` module. These are `InputMessage` and `OutputMessage`.
 
