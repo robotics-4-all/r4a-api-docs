@@ -1,5 +1,5 @@
 site_name: R4A APIs
-pages:
+nav:
   - Home: index.md
   - Utilities:
     - Exceptions: exceptions.md

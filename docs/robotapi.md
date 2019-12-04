@@ -20,12 +20,12 @@ r.devicesObj.enableDevicesType(Devices.MICROPHONE)
 
 Next, the API calls, sorted by device categories are presented.
 
+---
 
 ## - **Speakers API**
 
----
+### *RobotAPI*.**speak**
 
-### RobotAPI.speak
 A text-to-speech algorithm is used, in order for the device to "speak" in different languages.
 
 #### Input arguments
@@ -33,126 +33,147 @@ A text-to-speech algorithm is used, in order for the device to "speak" in differ
 - `volume`: The volume from 0 to 100
 - `language`: A [Language](enums/#languages-enum)
 
+#### Output / Variables
+
+This call has no output and does not change any TekVariables.
+
 #### Examples
 ```python
 import robot_api
 import utilities
 
-rapi = RobotAPI()
+rapi = robot_api.RobotAPI()
 
 out = rapi.speak(utilities.InputMessage({
     'texts': ['the number', 'is', utilities.TekVariables.SLEEP_DURATION],
     'volume': 100,
-    'language': utilities.Languages.EL
+    'language': utilities.Languages.EN
+}))
+```
+
+### *RobotAPI*.**replaySound**
+
+This call reproduces a sound from the speakers. The sound can either be a wav file, or a base64-encoded string.
+
+#### Input arguments
+
+- `is_file`: True if we want to play a file, false if we have a raw base64 string
+- `string`: Either the absolute path of the file, or the base64 string.
+- `volume`: The volume from 0 to 100
+
+#### Output / Variables
+
+This call has no output and does not change any `TekVariables`.
+
+#### Examples
+
+```python
+import robot_api
+import utilities
+
+rapi = robot_api.RobotAPI()
+
+out = rapi.replaySound(utilities.InputMessage({
+    'is_file': True,
+    'string': '/tmp/tmp.wav',
+    'volume': 100
 }))
 ```
 
 ---
 
-### RobotAPI.replaySound
-- is_file
-- string
-- volume
-
-An `InputMessage` such as:
-```python
-out = rapi.playSoundFromFile(InputMessage({
-    'deviceId': ID, # The Id of the SPEAKERS device
-    'file': "test.wav",
-    'volume': 100
-}))
-```
-
 ## - **Microphone API**
-### RobotAPI.recordSound
-- duration
-- name
-- save_file_url
 
-Records a sound by giving duration and a name.
+### *RobotAPI*.**recordSound**
 
-#### Input
-An `InputMessage` such as:
-```python
-out = rapi.recordSound(InputMessage({
-    'deviceId': ID,
-    'duration': 3, # seconds
-    'name': 'test_name'
-}))
+This call records a sound from a microphone.
+
+#### Input arguments
+
+- `duration`: How many seconds the recording will be
+- `name`: A name to store the sound (can be later used to retrieve it)
+- `save_file_url`: Absolute path to store the sound as a wav. If `None`, the sound is not locally stored.
+
+#### Output / Variables
+
+This call returns an `OutputMessage`, containing the following data:
 ```
-
-### RobotAPI.getSound
-Gets last sounds from memory encoded as a **base64 string**.
-
-#### Input
-An `InputMessage` such as:
-```python
-out = rapi.getSound(InputMessage({
-    'deviceId': d.id,
-    'fromIndex': 0,
-    'toIndex': 0
-}))
-```
-#### Output
-An `OutputMessage` such as:
-```python
 {
-  'measurements':[
-    {
-    	'deviceId': 0,
-    	'timestamp': 0,
-    	'is_file': 0,
-    	'file': 'The file\'s path or the base64 sound string',
-    	'volume': 100
-    },
-    ...
-  ]
+  'record': The base64 encoded sound file
 }
 ```
-The sound is also written in robot memory.
+
+In does not change any `TekVariables`.
+
+#### Examples
+
+```python
+import robot_api
+import utilities
+
+rapi = robot_api.RobotAPI()
+
+out = rapi.recordSound(utilities.InputMessage({
+    'name': 'test_sound_1',
+    'duration': 3,
+    'save_file_url': '/tmp/tmp.wav'
+}))
+sound_str = out.data['record']
+```
+
+---
 
 ## - **Camera API**
-### RobotAPI.captureImage
-- width
-- height
-- save_file_url
 
-Captures an image from the camera.
+### *RobotAPI*.**captureImage**
 
-#### Input
-An `InputMessage` such as:
+This call captures an image from the camera.
+
+#### Input arguments
+
+- `width`: Desired width of captured image
+- `height`: Desired height of captured image
+- `save_file_url`: An absolute path for the image to be saved. If `None`, the image is not saved.
+
+#### Output / Variables
+
+The call returns an `OutputMessage` with the following data:
+
+- `deviceId`: the id of the device,
+- `timestamp`: the timestamp of the capture,
+- `image`: the image as base 64 string,
+- `width`: the width of the captured image,
+- `height`: the height of the captured image,
+- `format`: usually `rgb`,
+- `per_rows`: True if stored by rows or by columns
+
+#### Examples
+
 ```python
-out = rapi.captureImage(InputMessage({
-    'deviceId': ID
+import robot_api
+import utilities
+
+rapi = robot_api.RobotAPI()
+
+out = rapi.captureImage(utilities.InputMessage({
+    'width': 800,
+    'height': 480,
+    'save_file_url': '/tmp/file.jpg'
 }))
+out.print()
 ```
-#### Output
-An `OutputMessage` as such:
-```python
-{
-    'deviceId': ID,
-    'timestamp': 0,
-    'image': "as base64 string format",
-    'width': 0,
-    'height': 0,
-    'format': 'rgb',
-    'per_rows': True # If stored by rows or by columns
-}
-```
-The image is also stored in the robot memory.
 
-### RobotAPI.getImages
-Retrieves images from memory
+### *RobotAPI*.**getImages**
 
-#### Input
-```python
-out = rapi.getImages(InputMessage({
-    'deviceId': ID,
-    'fromIndex': 0,
-    'toIndex': 0
-}))
-```
-#### Output
+Retrieves images from memory.
+
+#### Input arguments
+
+- `fromIndex`: The most recent index
+- `toIndex`: The oldest index
+
+#### Output / Variables
+
 An `OutputMessage` as such:
 ```python
 {
@@ -171,178 +192,262 @@ An `OutputMessage` as such:
 }
 ```
 
-## - **Touch screen API**
-### RobotAPI.showImage
-- image
-- width
-- height
-- duration
-- touch
-
-Outputs an image in the screen.
-
-#### Input
-An `InputMessage` such as:
+#### Examples
 ```python
-out = rapi.showImage(InputMessage({
-    'deviceId': ID,
-    'image': 'the image as absolute file or base64 string',
-    'is_file': True or False,
-    'duration': 10, # Visualization stops after 10 seconds
-    'wait_for_touch': True # If we wait for touch
+import robot_api
+import utilities
+
+rapi = robot_api.RobotAPI()
+
+out = rapi.getImages(utilities.InputMessage({
+    'fromIndex': 0,
+    'toIndex': 0
 }))
 ```
 
-### RobotAPI.showOptions
-- options []
-- duration
+---
 
-Shows a number of options in touch screen and waits for a touch.
+## - **Touch screen API**
 
-#### Input
+### *RobotAPI*.**showImage**
+
+Shows an image in touch screen
+
+#### Input arguments
+
+- `image`: The image as base64 string
+- `width`: The width of the captured image
+- `height`: The height of the captured image
+- `duration`: How many seconds the image will be shown
+- `touch`: True if touches are accepted.
+
+#### Output / Variables
+
+Returns an `OutputMessage` containing the following data:
+
+```
+{
+  'reaction_time': The reaction time - time between the display and the touch,
+  'selected': None
+}
+```
+
+#### Examples
+
+```python
+import robot_api
+import utilities
+
+rapi = robot_api.RobotAPI()
+
+out = rapi.captureImage(utilities.InputMessage({
+    'width': 800,
+    'height': 480,
+    'save_file_url': None
+}))
+out.print()
+
+out = rapi.showImage(utilities.InputMessage({
+    'image': out.data['image'],
+    'width': out.data['width'],
+    'height': out.data['height'],
+    'duration': 10,
+    'touch': True
+}))
+out.print()
+```
+
+### *RobotAPI*.**showOptions**
+
+Shows up to 4 options in the touch screen and waits for a touch.
+
+#### Input arguments
+
+- `options`: A list of strings
+- `duration`: For how much time the options will wait for touch
+
+#### Output / Variables
+
+Returns an `OutputMessage` containing the following data:
+
+```
+{
+  'reaction_time': The reaction time - time between the display and the touch,
+  'selected': The option selected (as string)
+}
+```
+
+#### Examples
 
 An `InputMessage` as such:
 
 ```python
-out = rapi.showOptions(InputMessage({
-    'deviceId': ID,
-    'options': ['option 1', 'option 2'],
-    'duration': 10 # Times out after 10 seconds
+import robot_api
+import utilities
+
+rapi = robot_api.RobotAPI()
+
+out = rapi.showOptions(utilities.InputMessage({
+    'options': ['Option 1', 'Option 2'],
+    'duration': 5
 }))
+out.print()
 ```
 
-#### Output
+### *RobotAPI*.**showColor**
 
-Returns the option selected by an `OutputMessage`:
+#### Input arguments
 
-```python
+- `color`:
+- `duration`: For how much time the color will wait for touch
+
+#### Output / Variables
+
+```
 {
-	'option': 1 # -1 if nothing is pressed
+  'reaction_time': The reaction time - time between the display and the touch,
+  'selected': The option selected (as string)
 }
 ```
 
-### RobotAPI.showColor
-- color
-- duration
+#### Examples
+
+```python
+import robot_api
+import utilities
+
+rapi = robot_api.RobotAPI()
+
+out = rapi.showColor(utilities.InputMessage({
+    'color': utilities.Colors.GREEN.value,
+    'duration': 5
+}))
+out.print()
+```
+
+---
 
 ## - **LEDs API**
-### RobotAPI.lightLeds
 
-#### Input
-An `InputMessage` such as:
-```python
-out = robot_api.lightLeds(InputMessage({
-    'devices': [
-        {
-            'deviceId': ID, # The ID of the LED device
-            'r': 0,
-            'g': 255,
-            'b': 0,
-            'intensity': 100
-        },
-        ...
-    ]
-}))
-```
+### *RobotAPI*.**lightLeds**
 
-### RobotAPI.ledsColorWipe
-An `InputMessage` such as:
-```python
-out = robot_api.ledsColorWipe(InputMessage({
-    'r': 0,
-    'g': 255,
-    'b': 0,
-    'intensity': 100
-}))
-```
 
-### RobotAPI.getLeds
+### *RobotAPI*.**ledsColorWipe**
+
+
+### *RobotAPI*.**getLeds**
+
 - fromIndex
 - toindex
+
+---
 
 ## - **Buttons API**
-### RobotAPI.getButtonChanges
 
-An `InputMessage` such as:
+### *RobotAPI*.**getButtonChanges**
 
-```python
-out = robot_api.getButtonChanges(InputMessage({
-                'deviceId': ID, # The ID of the device
-                'fromIndex': 0,
-                'toIndex': -1
-            }))
-```
-
-```python
-{
-  'measurements':[
-    {'deviceId': 0, 'timestamp': 0, 'change': 0},
-    ...
-  ]
-}
-```
+---
 
 ## - **Environmental sensor API**
-### RobotAPI.getTemperatureMeasurement
+
+### *RobotAPI*.**getTemperatureMeasurement**
+
 - fromIndex
 - toindex
 
-### RobotAPI.getHumidityMeasurement
+### *RobotAPI*.**getHumidityMeasurement**
+
 - fromIndex
 - toindex
 
-### RobotAPI.getPressureMeasurement
+### *RobotAPI*.**getPressureMeasurement**
+
 - fromIndex
 - toindex
 
-### RobotAPI.getGasMeasurement
+### *RobotAPI*.**getGasMeasurement**
+
 - fromIndex
 - toindex
+
+---
 
 ## - **Encoders API**
-### RobotAPI.getEncoderMeasurement
+
+### *RobotAPI*.**getEncoderMeasurement**
+
 - fromIndex
 - toindex
+
+---
 
 ## - **Line follower API**
-### RobotAPI.getLineFollowerMeasurement
+
+### *RobotAPI*.**getLineFollowerMeasurement**
+
 - fromIndex
 - toindex
+
+---
 
 ## - **Time-of-flight API**
-### RobotAPI.getToFMeasurement
+
+### *RobotAPI*.**getToFMeasurement**
+
 - fromIndex
 - toindex
+
+---
 
 ## - **Sonars API**
-### RobotAPI.getSonarMeasurement
+
+### *RobotAPI*.**getSonarMeasurement**
+
 - fromIndex
 - toindex
+
+---
 
 ## - **IRs API**
-### RobotAPI.getIrMeasurement
+
+### *RobotAPI*.**getIrMeasurement**
+
 - fromIndex
 - toindex
+
+---
 
 ## - **Pan-tilt API**
-### RobotAPI.getPanTilt
+
+### *RobotAPI*.**getPanTilt**
+
 - fromIndex
 - toindex
 
-### RobotAPI.movePanTilt
+### *RobotAPI*.**movePanTilt**
+
 - yaw
 - pitch
 
+---
+
 ## - **Body motion API**
-### RobotAPI.moveBody
+
+### *RobotAPI*.**moveBody**
+
 - linearVelocity
 - rotationalVelocity
 
-### RobotAPI.getBodyVelocities
+### *RobotAPI*.**getBodyVelocities**
+
 - fromIndex
 - toindex
 
+---
+
 ## - **IMU API**
-### RobotAPI.getImuMeasurement
+
+### *RobotAPI*.**getImuMeasurement**
+
 - fromIndex
 - toindex
