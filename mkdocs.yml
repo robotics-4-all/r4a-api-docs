@@ -1,5 +1,5 @@
 site_name: R4A APIs
-nav:
+pages:
   - Home: index.md
   - Utilities:
     - Exceptions: exceptions.md
@@ -7,7 +7,24 @@ nav:
     - Memory: memory.md
     - Conditions: conditions.md
     - Enumerations: enums.md
-  - Robot API: robotapi.md
+  - Robot API:
+    - General: robotapi.md
+    - Enabling resources: resources.md
+    - Speakers API: speakers.md
+    - Microphone API: microphone.md
+    - Camera API: camera.md
+    - Touch screen API: touchscreen.md
+    - LEDs API: leds.md
+    - Buttons API: buttons.md
+    - Environmental API: env.md
+    - Encoders API: encoders.md
+    - Line follower API: linefollower.md
+    - Time-of-flight API: tof.md
+    - Sonars API: sonars.md
+    - Infrared API: irs.md
+    - Pan-tilt API: pantilt.md
+    - Body motion API: motion.md
+    - IMU API: imu.md
   - Cloud API: cloudapi.md
   - Generic API: genericapi.md
   - FSM-like applications: nodes.md
