@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Robot API - R4A APIs</title>
+        <title>General - R4A APIs</title>
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -74,8 +74,78 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="active">
-                                <a href="./">Robot API</a>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Robot API <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li class="active">
+    <a href="./">General</a>
+</li>
+                                    
+<li >
+    <a href="../resources/">Enabling resources</a>
+</li>
+                                    
+<li >
+    <a href="../speakers/">Speakers API</a>
+</li>
+                                    
+<li >
+    <a href="../microphone/">Microphone API</a>
+</li>
+                                    
+<li >
+    <a href="../camera/">Camera API</a>
+</li>
+                                    
+<li >
+    <a href="../touchscreen/">Touch screen API</a>
+</li>
+                                    
+<li >
+    <a href="../leds/">LEDs API</a>
+</li>
+                                    
+<li >
+    <a href="../buttons/">Buttons API</a>
+</li>
+                                    
+<li >
+    <a href="../env/">Environmental API</a>
+</li>
+                                    
+<li >
+    <a href="../encoders/">Encoders API</a>
+</li>
+                                    
+<li >
+    <a href="../linefollower/">Line follower API</a>
+</li>
+                                    
+<li >
+    <a href="../tof/">Time-of-flight API</a>
+</li>
+                                    
+<li >
+    <a href="../sonars/">Sonars API</a>
+</li>
+                                    
+<li >
+    <a href="../irs/">Infrared API</a>
+</li>
+                                    
+<li >
+    <a href="../pantilt/">Pan-tilt API</a>
+</li>
+                                    
+<li >
+    <a href="../motion/">Body motion API</a>
+</li>
+                                    
+<li >
+    <a href="../imu/">IMU API</a>
+</li>
+                                </ul>
                             </li>
                             <li >
                                 <a href="../cloudapi/">Cloud API</a>
@@ -103,7 +173,7 @@
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../cloudapi/">
+                                <a rel="prev" href="../resources/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -116,390 +186,30 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#the-robotapi">The RobotAPI</a></li>
-        <li class="main "><a href="#enabling-resources">Enabling resources</a></li>
-        <li class="main "><a href="#the-api-calls">The API calls</a></li>
-            <li><a href="#-speakers-api">- Speakers API</a></li>
-            <li><a href="#-microphone-api">- Microphone API</a></li>
-            <li><a href="#-camera-api">- Camera API</a></li>
-            <li><a href="#-touch-screen-api">- Touch screen API</a></li>
-            <li><a href="#-leds-api">- LEDs API</a></li>
-            <li><a href="#-buttons-api">- Buttons API</a></li>
-            <li><a href="#-environmental-sensor-api">- Environmental sensor API</a></li>
-            <li><a href="#-encoders-api">- Encoders API</a></li>
-            <li><a href="#-line-follower-api">- Line follower API</a></li>
-            <li><a href="#-time-of-flight-api">- Time-of-flight API</a></li>
-            <li><a href="#-sonars-api">- Sonars API</a></li>
-            <li><a href="#-irs-api">- IRs API</a></li>
-            <li><a href="#-pan-tilt-api">- Pan-tilt API</a></li>
-            <li><a href="#-body-motion-api">- Body motion API</a></li>
-            <li><a href="#-imu-api">- IMU API</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="the-robotapi">The RobotAPI</h1>
 <p>Robot API offers services / calls, with which you can manipulate the robot/device. As explained <a href="../messages/">here</a>, all calls get an <a href="../messages/#inputmessage-class">InputMessage</a> as input and an <a href="../messages/#outputmessage-class">OutputMessage</a> as output.</p>
-<h1 id="enabling-resources">Enabling resources</h1>
-<p>In order to use a resource, you must enable it. The easier way to do this is via the <code>devicesObj</code> object, that exists in a <code>RobotAPI</code> object. Specifically there is a function called <code>enableDevicesType</code>, that takes as input a <a href="../enums/#devices-enum">Device</a> and activates all respective devices.</p>
-<p>For example, if we were to enable all microphones, we would write:</p>
-<pre><code class="python">import utilities
-import robot_api
-
-r = robot_api.RobotAPI()
-r.devicesObj.enableDevicesType(Devices.MICROPHONE)
-</code></pre>
-
-<h1 id="the-api-calls">The API calls</h1>
-<p>Next, the API calls, sorted by device categories are presented.</p>
-<hr />
-<h2 id="-speakers-api">- <strong>Speakers API</strong></h2>
-<h3 id="robotapispeak"><em>RobotAPI</em>.<strong>speak</strong></h3>
-<p>A text-to-speech algorithm is used, in order for the device to "speak" in different languages.</p>
-<h4 id="input-arguments">Input arguments</h4>
+<p>The contents of this section are:</p>
 <ul>
-<li><code>texts</code>: A list of arguments. These may be strings or <a href="enums/#tekvariables-enum">TekVariables</a></li>
-<li><code>volume</code>: The volume from 0 to 100</li>
-<li><code>language</code>: A <a href="enums/#languages-enum">Language</a></li>
-</ul>
-<h4 id="output-variables">Output / Variables</h4>
-<p>This call has no output and does not change any TekVariables.</p>
-<h4 id="examples">Examples</h4>
-<pre><code class="python">import robot_api
-import utilities
-
-rapi = robot_api.RobotAPI()
-
-out = rapi.speak(utilities.InputMessage({
-    'texts': ['the number', 'is', utilities.TekVariables.SLEEP_DURATION],
-    'volume': 100,
-    'language': utilities.Languages.EN
-}))
-</code></pre>
-
-<h3 id="robotapireplaysound"><em>RobotAPI</em>.<strong>replaySound</strong></h3>
-<p>This call reproduces a sound from the speakers. The sound can either be a wav file, or a base64-encoded string.</p>
-<h4 id="input-arguments_1">Input arguments</h4>
-<ul>
-<li><code>is_file</code>: True if we want to play a file, false if we have a raw base64 string</li>
-<li><code>string</code>: Either the absolute path of the file, or the base64 string.</li>
-<li><code>volume</code>: The volume from 0 to 100</li>
-</ul>
-<h4 id="output-variables_1">Output / Variables</h4>
-<p>This call has no output and does not change any <code>TekVariables</code>.</p>
-<h4 id="examples_1">Examples</h4>
-<pre><code class="python">import robot_api
-import utilities
-
-rapi = robot_api.RobotAPI()
-
-out = rapi.replaySound(utilities.InputMessage({
-    'is_file': True,
-    'string': '/tmp/tmp.wav',
-    'volume': 100
-}))
-</code></pre>
-
-<hr />
-<h2 id="-microphone-api">- <strong>Microphone API</strong></h2>
-<h3 id="robotapirecordsound"><em>RobotAPI</em>.<strong>recordSound</strong></h3>
-<p>This call records a sound from a microphone.</p>
-<h4 id="input-arguments_2">Input arguments</h4>
-<ul>
-<li><code>duration</code>: How many seconds the recording will be</li>
-<li><code>name</code>: A name to store the sound (can be later used to retrieve it)</li>
-<li><code>save_file_url</code>: Absolute path to store the sound as a wav. If <code>None</code>, the sound is not locally stored.</li>
-</ul>
-<h4 id="output-variables_2">Output / Variables</h4>
-<p>This call returns an <code>OutputMessage</code>, containing the following data:</p>
-<pre><code>{
-  'record': The base64 encoded sound file
-}
-</code></pre>
-
-<p>In does not change any <code>TekVariables</code>.</p>
-<h4 id="examples_2">Examples</h4>
-<pre><code class="python">import robot_api
-import utilities
-
-rapi = robot_api.RobotAPI()
-
-out = rapi.recordSound(utilities.InputMessage({
-    'name': 'test_sound_1',
-    'duration': 3,
-    'save_file_url': '/tmp/tmp.wav'
-}))
-sound_str = out.data['record']
-</code></pre>
-
-<hr />
-<h2 id="-camera-api">- <strong>Camera API</strong></h2>
-<h3 id="robotapicaptureimage"><em>RobotAPI</em>.<strong>captureImage</strong></h3>
-<p>This call captures an image from the camera.</p>
-<h4 id="input-arguments_3">Input arguments</h4>
-<ul>
-<li><code>width</code>: Desired width of captured image</li>
-<li><code>height</code>: Desired height of captured image</li>
-<li><code>save_file_url</code>: An absolute path for the image to be saved. If <code>None</code>, the image is not saved.</li>
-</ul>
-<h4 id="output-variables_3">Output / Variables</h4>
-<p>The call returns an <code>OutputMessage</code> with the following data:</p>
-<ul>
-<li><code>deviceId</code>: the id of the device,</li>
-<li><code>timestamp</code>: the timestamp of the capture,</li>
-<li><code>image</code>: the image as base 64 string,</li>
-<li><code>width</code>: the width of the captured image,</li>
-<li><code>height</code>: the height of the captured image,</li>
-<li><code>format</code>: usually <code>rgb</code>,</li>
-<li><code>per_rows</code>: True if stored by rows or by columns</li>
-</ul>
-<h4 id="examples_3">Examples</h4>
-<pre><code class="python">import robot_api
-import utilities
-
-rapi = robot_api.RobotAPI()
-
-out = rapi.captureImage(utilities.InputMessage({
-    'width': 800,
-    'height': 480,
-    'save_file_url': '/tmp/file.jpg'
-}))
-out.print()
-</code></pre>
-
-<h3 id="robotapigetimages"><em>RobotAPI</em>.<strong>getImages</strong></h3>
-<p>Retrieves images from memory.</p>
-<h4 id="input-arguments_4">Input arguments</h4>
-<ul>
-<li><code>fromIndex</code>: The most recent index</li>
-<li><code>toIndex</code>: The oldest index</li>
-</ul>
-<h4 id="output-variables_4">Output / Variables</h4>
-<p>An <code>OutputMessage</code> as such:</p>
-<pre><code class="python">{
-    'measurements': [
-        {
-            'deviceId': ID,
-            'timestamp': 0,
-            'image': &quot;as base64 string format&quot;,
-            'width': 0,
-            'height': 0,
-            'format': 'rgb',
-            'per_rows': True # If stored by rows or by columns
-        },
-        ...
-    ]
-}
-</code></pre>
-
-<h4 id="examples_4">Examples</h4>
-<pre><code class="python">import robot_api
-import utilities
-
-rapi = robot_api.RobotAPI()
-
-out = rapi.getImages(utilities.InputMessage({
-    'fromIndex': 0,
-    'toIndex': 0
-}))
-</code></pre>
-
-<hr />
-<h2 id="-touch-screen-api">- <strong>Touch screen API</strong></h2>
-<h3 id="robotapishowimage"><em>RobotAPI</em>.<strong>showImage</strong></h3>
-<p>Shows an image in touch screen</p>
-<h4 id="input-arguments_5">Input arguments</h4>
-<ul>
-<li><code>image</code>: The image as base64 string</li>
-<li><code>width</code>: The width of the captured image</li>
-<li><code>height</code>: The height of the captured image</li>
-<li><code>duration</code>: How many seconds the image will be shown</li>
-<li><code>touch</code>: True if touches are accepted.</li>
-</ul>
-<h4 id="output-variables_5">Output / Variables</h4>
-<p>Returns an <code>OutputMessage</code> containing the following data:</p>
-<pre><code>{
-  'reaction_time': The reaction time - time between the display and the touch,
-  'selected': None
-}
-</code></pre>
-
-<h4 id="examples_5">Examples</h4>
-<pre><code class="python">import robot_api
-import utilities
-
-rapi = robot_api.RobotAPI()
-
-out = rapi.captureImage(utilities.InputMessage({
-    'width': 800,
-    'height': 480,
-    'save_file_url': None
-}))
-out.print()
-
-out = rapi.showImage(utilities.InputMessage({
-    'image': out.data['image'],
-    'width': out.data['width'],
-    'height': out.data['height'],
-    'duration': 10,
-    'touch': True
-}))
-out.print()
-</code></pre>
-
-<h3 id="robotapishowoptions"><em>RobotAPI</em>.<strong>showOptions</strong></h3>
-<p>Shows up to 4 options in the touch screen and waits for a touch.</p>
-<h4 id="input-arguments_6">Input arguments</h4>
-<ul>
-<li><code>options</code>: A list of strings</li>
-<li><code>duration</code>: For how much time the options will wait for touch</li>
-</ul>
-<h4 id="output-variables_6">Output / Variables</h4>
-<p>Returns an <code>OutputMessage</code> containing the following data:</p>
-<pre><code>{
-  'reaction_time': The reaction time - time between the display and the touch,
-  'selected': The option selected (as string)
-}
-</code></pre>
-
-<h4 id="examples_6">Examples</h4>
-<p>An <code>InputMessage</code> as such:</p>
-<pre><code class="python">import robot_api
-import utilities
-
-rapi = robot_api.RobotAPI()
-
-out = rapi.showOptions(utilities.InputMessage({
-    'options': ['Option 1', 'Option 2'],
-    'duration': 5
-}))
-out.print()
-</code></pre>
-
-<h3 id="robotapishowcolor"><em>RobotAPI</em>.<strong>showColor</strong></h3>
-<h4 id="input-arguments_7">Input arguments</h4>
-<ul>
-<li><code>color</code>:</li>
-<li><code>duration</code>: For how much time the color will wait for touch</li>
-</ul>
-<h4 id="output-variables_7">Output / Variables</h4>
-<pre><code>{
-  'reaction_time': The reaction time - time between the display and the touch,
-  'selected': The option selected (as string)
-}
-</code></pre>
-
-<h4 id="examples_7">Examples</h4>
-<pre><code class="python">import robot_api
-import utilities
-
-rapi = robot_api.RobotAPI()
-
-out = rapi.showColor(utilities.InputMessage({
-    'color': utilities.Colors.GREEN.value,
-    'duration': 5
-}))
-out.print()
-</code></pre>
-
-<hr />
-<h2 id="-leds-api">- <strong>LEDs API</strong></h2>
-<h3 id="robotapilightleds"><em>RobotAPI</em>.<strong>lightLeds</strong></h3>
-<h3 id="robotapiledscolorwipe"><em>RobotAPI</em>.<strong>ledsColorWipe</strong></h3>
-<h3 id="robotapigetleds"><em>RobotAPI</em>.<strong>getLeds</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<hr />
-<h2 id="-buttons-api">- <strong>Buttons API</strong></h2>
-<h3 id="robotapigetbuttonchanges"><em>RobotAPI</em>.<strong>getButtonChanges</strong></h3>
-<hr />
-<h2 id="-environmental-sensor-api">- <strong>Environmental sensor API</strong></h2>
-<h3 id="robotapigettemperaturemeasurement"><em>RobotAPI</em>.<strong>getTemperatureMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<h3 id="robotapigethumiditymeasurement"><em>RobotAPI</em>.<strong>getHumidityMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<h3 id="robotapigetpressuremeasurement"><em>RobotAPI</em>.<strong>getPressureMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<h3 id="robotapigetgasmeasurement"><em>RobotAPI</em>.<strong>getGasMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<hr />
-<h2 id="-encoders-api">- <strong>Encoders API</strong></h2>
-<h3 id="robotapigetencodermeasurement"><em>RobotAPI</em>.<strong>getEncoderMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<hr />
-<h2 id="-line-follower-api">- <strong>Line follower API</strong></h2>
-<h3 id="robotapigetlinefollowermeasurement"><em>RobotAPI</em>.<strong>getLineFollowerMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<hr />
-<h2 id="-time-of-flight-api">- <strong>Time-of-flight API</strong></h2>
-<h3 id="robotapigettofmeasurement"><em>RobotAPI</em>.<strong>getToFMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<hr />
-<h2 id="-sonars-api">- <strong>Sonars API</strong></h2>
-<h3 id="robotapigetsonarmeasurement"><em>RobotAPI</em>.<strong>getSonarMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<hr />
-<h2 id="-irs-api">- <strong>IRs API</strong></h2>
-<h3 id="robotapigetirmeasurement"><em>RobotAPI</em>.<strong>getIrMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<hr />
-<h2 id="-pan-tilt-api">- <strong>Pan-tilt API</strong></h2>
-<h3 id="robotapigetpantilt"><em>RobotAPI</em>.<strong>getPanTilt</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<h3 id="robotapimovepantilt"><em>RobotAPI</em>.<strong>movePanTilt</strong></h3>
-<ul>
-<li>yaw</li>
-<li>pitch</li>
-</ul>
-<hr />
-<h2 id="-body-motion-api">- <strong>Body motion API</strong></h2>
-<h3 id="robotapimovebody"><em>RobotAPI</em>.<strong>moveBody</strong></h3>
-<ul>
-<li>linearVelocity</li>
-<li>rotationalVelocity</li>
-</ul>
-<h3 id="robotapigetbodyvelocities"><em>RobotAPI</em>.<strong>getBodyVelocities</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul>
-<hr />
-<h2 id="-imu-api">- <strong>IMU API</strong></h2>
-<h3 id="robotapigetimumeasurement"><em>RobotAPI</em>.<strong>getImuMeasurement</strong></h3>
-<ul>
-<li>fromIndex</li>
-<li>toindex</li>
+<li><a href="../resources/">Enabling resources</a></li>
+<li><a href="../speakers/">Speakers API</a></li>
+<li><a href="../microphone/">Microphone API</a></li>
+<li><a href="../camera/">Camera API</a></li>
+<li><a href="../touchscreen/">Touch screen API</a></li>
+<li><a href="../leds/">LEDs API</a></li>
+<li><a href="../buttons/">Buttons API</a></li>
+<li><a href="../env/">Environmental API</a></li>
+<li><a href="../encoders/">Encoders API</a></li>
+<li><a href="../linefollower/">Line follower API</a></li>
+<li><a href="../tof/">Time-of-flight API</a></li>
+<li><a href="../sonars/">Sonars API</a></li>
+<li><a href="../irs/">Infrared API</a></li>
+<li><a href="../pantilt/">Pan-tilt API</a></li>
+<li><a href="../motion/">Body motion API</a></li>
+<li><a href="../imu/">IMU API</a></li>
 </ul></div>
         </div>
 
