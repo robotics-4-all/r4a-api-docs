@@ -27,6 +27,7 @@ nav:
     - IMU API: imu.md
   - Cloud API:
     - General: cloudapi.md
+    - Age detection API: cloud_age_detection.md
     - Dominant color API: cloud_dominant_color.md
     - Face detection API: cloud_face_detection.md
     - Gender detection API: cloud_gender_detection.md
@@ -35,6 +36,7 @@ nav:
     - OCR API: cloud_ocr.md
     - Sound detection API: cloud_sound_detection.md
     - Speech-2-text API: cloud_speech_to_text.md
+    - Sentiment detection API: cloud_sentiment_detection.md
     - Translate API: cloud_translate_from_audio.md
     - Weather API: cloud_weather.md
     - Cloud QR/Barcode API: cloud_qr_barcode.md

@@ -9,171 +9,222 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
         <title>FSM-like applications - R4A APIs</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="..">R4A APIs</a>
-                </div>
+                <a class="navbar-brand" href="..">R4A APIs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="..">Home</a>
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../exceptions/">Exceptions</a>
+<li>
+    <a href="../exceptions/" class="dropdown-item">Exceptions</a>
 </li>
                                     
-<li >
-    <a href="../messages/">Messages</a>
+<li>
+    <a href="../messages/" class="dropdown-item">Messages</a>
 </li>
                                     
-<li >
-    <a href="../memory/">Memory</a>
+<li>
+    <a href="../memory/" class="dropdown-item">Memory</a>
 </li>
                                     
-<li >
-    <a href="../conditions/">Conditions</a>
+<li>
+    <a href="../conditions/" class="dropdown-item">Conditions</a>
 </li>
                                     
-<li >
-    <a href="../enums/">Enumerations</a>
+<li>
+    <a href="../enums/" class="dropdown-item">Enumerations</a>
 </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Robot API <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Robot API <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../robotapi/">General</a>
+<li>
+    <a href="../robotapi/" class="dropdown-item">General</a>
 </li>
                                     
-<li >
-    <a href="../resources/">Enabling resources</a>
+<li>
+    <a href="../resources/" class="dropdown-item">Enabling resources</a>
 </li>
                                     
-<li >
-    <a href="../speakers/">Speakers API</a>
+<li>
+    <a href="../speakers/" class="dropdown-item">Speakers API</a>
 </li>
                                     
-<li >
-    <a href="../microphone/">Microphone API</a>
+<li>
+    <a href="../microphone/" class="dropdown-item">Microphone API</a>
 </li>
                                     
-<li >
-    <a href="../camera/">Camera API</a>
+<li>
+    <a href="../camera/" class="dropdown-item">Camera API</a>
 </li>
                                     
-<li >
-    <a href="../touchscreen/">Touch screen API</a>
+<li>
+    <a href="../touchscreen/" class="dropdown-item">Touch screen API</a>
 </li>
                                     
-<li >
-    <a href="../leds/">LEDs API</a>
+<li>
+    <a href="../leds/" class="dropdown-item">LEDs API</a>
 </li>
                                     
-<li >
-    <a href="../buttons/">Buttons API</a>
+<li>
+    <a href="../buttons/" class="dropdown-item">Buttons API</a>
 </li>
                                     
-<li >
-    <a href="../env/">Environmental API</a>
+<li>
+    <a href="../env/" class="dropdown-item">Environmental API</a>
 </li>
                                     
-<li >
-    <a href="../encoders/">Encoders API</a>
+<li>
+    <a href="../encoders/" class="dropdown-item">Encoders API</a>
 </li>
                                     
-<li >
-    <a href="../linefollower/">Line follower API</a>
+<li>
+    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
 </li>
                                     
-<li >
-    <a href="../tof/">Time-of-flight API</a>
+<li>
+    <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
-<li >
-    <a href="../sonars/">Sonars API</a>
+<li>
+    <a href="../sonars/" class="dropdown-item">Sonars API</a>
 </li>
                                     
-<li >
-    <a href="../irs/">Infrared API</a>
+<li>
+    <a href="../irs/" class="dropdown-item">Infrared API</a>
 </li>
                                     
-<li >
-    <a href="../pantilt/">Pan-tilt API</a>
+<li>
+    <a href="../pantilt/" class="dropdown-item">Pan-tilt API</a>
 </li>
                                     
-<li >
-    <a href="../motion/">Body motion API</a>
+<li>
+    <a href="../motion/" class="dropdown-item">Body motion API</a>
 </li>
                                     
-<li >
-    <a href="../imu/">IMU API</a>
+<li>
+    <a href="../imu/" class="dropdown-item">IMU API</a>
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="../cloudapi/">Cloud API</a>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud API <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../cloudapi/" class="dropdown-item">General</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_dominant_color/" class="dropdown-item">Dominant color API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_face_detection/" class="dropdown-item">Face detection API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_gender_detection/" class="dropdown-item">Gender detection API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_language_detection/" class="dropdown-item">Language detection API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_motion_detection/" class="dropdown-item">Motion detection API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_ocr/" class="dropdown-item">OCR API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_sound_detection/" class="dropdown-item">Sound detection API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_speech_to_text/" class="dropdown-item">Speech-2-text API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_translate_from_audio/" class="dropdown-item">Translate API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_weather/" class="dropdown-item">Weather API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_qr_barcode/" class="dropdown-item">Cloud QR/Barcode API</a>
+</li>
+                                </ul>
                             </li>
-                            <li >
-                                <a href="../genericapi/">Generic API</a>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Generic API <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../genericapi/" class="dropdown-item">General</a>
+</li>
+                                    
+<li>
+    <a href="../generic_sleep/" class="dropdown-item">Sleep API</a>
+</li>
+                                    
+<li>
+    <a href="../generic_counter/" class="dropdown-item">Counter API</a>
+</li>
+                                </ul>
                             </li>
-                            <li class="active">
-                                <a href="./">FSM-like applications</a>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">FSM-like applications</a>
                             </li>
-                            <li >
-                                <a href="../examples/">Examples</a>
+                            <li class="navitem">
+                                <a href="../examples/" class="nav-link">Examples</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../genericapi/">
+                            <li class="nav-item">
+                                <a rel="prev" href="../generic_counter/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../examples/">
+                            <li class="nav-item">
+                                <a rel="next" href="../examples/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -183,13 +234,802 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
 
-<p>Under construction...</p></div>
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#node-based-app-creation" class="nav-link">Node-based app creation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#abstract-node-class" class="nav-link">Abstract Node Class</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#node-executor" class="nav-link">Node executor</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#teknodes" class="nav-link">TekNodes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="node-based-app-creation">Node-based app creation</h1>
+<p>The R4A API allows for high-level application creation, using an enhanced FSM-like structure, denoting nodes and transitions.</p>
+<h1 id="abstract-node-class">Abstract Node Class</h1>
+<p>The main element of the R4A FSM-like app creation is the <strong>Node</strong>. All possible nodes must inherit from the <strong>TekNode</strong> class, and implement the following methods (with bold the methods which MUST be implemented):</p>
+<ul>
+<li><strong><code>setParameters()</code></strong>: This method sets the proper parameters for a node to correctly operate</li>
+<li><code>parametersChecks()</code>: Implements sanity, type or value checks for input parameters</li>
+<li><strong><code>preempt()</code></strong>: Dictates how the node stops when preempted</li>
+<li><code>setStartingCondition(condition)</code>: The node will start when the condition is true</li>
+<li><code>setNextNode(id, condition)</code>: Sets a next node to transition to, based on a condition</li>
+<li><code>execute()</code>: Just executes the node and returns the next node, based on the conditions set</li>
+<li><strong><code>internalExecute()</code></strong>: Here add the node's core code</li>
+</ul>
+<h1 id="node-executor">Node executor</h1>
+<p>Nodes are being executed in a serialized fashion, using a Node executor, i.e. objects of the <strong>NodeExecutor</strong> class. This class contains the following methods:</p>
+<ul>
+<li><code>__init__(exe_id)</code>: Contructor, taking a unique id as input</li>
+<li><code>addNode(id, node)</code>: Adds a node in the execution list, either by id or by reference (node object)</li>
+<li><code>setStartingNode(id)</code>: Denotes the node id to start the execution with</li>
+<li><code>execute()</code>: Just executes the node executor. The nodes are executed, based on their <code>setNextNode</code> given ids.</li>
+<li><code>threadedExecute()</code>: Just initiates the execution in a thread</li>
+</ul>
+<p>An example of a node executor follows:</p>
+<pre><code class="python">#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import sys
+import os
+import logging
+
+from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+from r4a_apis.robot_api import RobotAPI
+from r4a_apis.cloud_api import CloudAPI
+from r4a_apis.generic_api import GenericAPI
+
+try:
+    log = Logger(allow_cutelog = True, level = logging.INFO)
+    TekNode.logger = log
+    TekNode.robot_api = RobotAPI(logger = log)
+    TekNode.cloud_api = CloudAPI(memory = TekNode.robot_api.memory, logger = log)
+    TekNode.generic_api = GenericAPI(memory = TekNode.robot_api.memory, logger = log)
+    Condition.memory = TekNode.robot_api.memory
+    Condition.logger = log
+    InputMessage.logger = log
+    OutputMessage.logger = log
+    TekException.logger = log
+    NodeExecutor.logger = log
+    log.debug('main', &quot;Hey, app is starting&quot;)
+
+    nodes = {}
+    nodes[0] = StartTekNode(0)
+    nodes[1] = RobotMotionTekNode(1)
+    nodes[1].setParameters(distance = None, duration = 5.0, direction = Directions.FORWARDS, speed = 0.2, type = MotionType.BASIC)
+    nodes[2] = RobotTurnTekNode(2)
+    nodes[2].setParameters(type = MotionType.BASIC, direction = Directions.RIGHT)
+    nodes[3] = CameraMotionTekNode(3)
+    nodes[3].setParameters(direction =  Directions.NEUTRAL, yaw = None, pitch = None)
+    nodes[4] = TalkTekNode(4)
+    nodes[4].setParameters(language = Languages.EL, texts = [&quot;Γεια σου&quot;], volume = 100)
+    nodes[5] = RecordSoundTekNode(5)
+    nodes[5].setParameters(name = &quot;Sound&quot;, duration = 5.0)
+    nodes[6] = ReplaySoundTekNode(6)
+    nodes[6].setParameters(name = &quot;Sound&quot;, volume = 100)
+    nodes[7] = TurnLedsOnTekNode(7)
+    nodes[7].setParameters(brightness = 100, color = Colors.WHITE)
+    nodes[8] = TurnLedsOffTekNode(8)
+    nodes[9] = StopTekNode(9)
+
+    # Transitions
+    nodes[0].setNextNode(id = 1)
+    nodes[1].setNextNode(id = 2)
+    nodes[2].setNextNode(id = 3)
+    nodes[3].setNextNode(id = 4)
+    nodes[4].setNextNode(id = 5)
+    nodes[5].setNextNode(id = 6)
+    nodes[6].setNextNode(id = 7)
+    nodes[7].setNextNode(id = 8)
+    nodes[8].setNextNode(id = 9)
+
+    # Main execution
+    main_executor = NodeExecutor(exe_id = 0)
+    for i in nodes:
+        main_executor.addNode(id = i, node = nodes[i])
+    main_executor.setStartingNode(id = 0)
+
+    # Go for it
+    main_executor.execute()
+    log.debug('main', &quot;App is done&quot;)
+
+except TekException:
+    pass
+</code></pre>
+
+<p>Next, the individual Nodes shall be presented.</p>
+<h1 id="teknodes">TekNodes</h1>
+<hr />
+<h3 id="camera-motion-node"><strong><em>Camera motion Node</em></strong></h3>
+<p>Moves the pan-tilt servo motors on top of which is the camera.</p>
+<h4 id="code-template">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = CameraMotionTekNode(_id)
+n.setParameters(yaw = _yaw, pitch = _pitch, direction = _direction)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_yaw</code>: Yaw angle in rads</li>
+<li><code>_pitch</code>: Pitch angle in rads</li>
+<li><code>_direction</code>: Direction of type <a href="../enums/#directions-enum">DetectionType</a></li>
+</ul>
+<h4 id="low-level-calls">Low-level calls</h4>
+<ul>
+<li><a href="../pantilt/#pan-tilt-api">RobotAPI.movePanTilt</a></li>
+</ul>
+<hr />
+<h3 id="counter-node"><strong><em>Counter Node</em></strong></h3>
+<p>Implements a counter with a specific name. The first time this node's execute is called, the initial value is given. Each next time, it is increased by <code>change_by</code>.</p>
+<h4 id="code-template_1">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = CounterTekNode(_id)
+n.setParameters(name = _name, set_value = _set_value, change_by = _change_by)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_name</code>: The name of the counter. Must be unique among the counters.</li>
+<li><code>_set_value</code>: The initial value of the counter</li>
+<li><code>_change_by</code>: The step to increase/decrease</li>
+</ul>
+<h4 id="low-level-calls_1">Low-level calls</h4>
+<hr />
+<h3 id="detect-age-node"><strong><em>Detect age Node</em></strong></h3>
+<p>Detects age using the camera. It captures an image, performs face detection and if a face is found it tries to detect its age.</p>
+<h4 id="code-template_2">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectAgeTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_2">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_2">Low-level calls</h4>
+<hr />
+<h3 id="detect-barcode-node"><strong><em>Detect barcode Node</em></strong></h3>
+<h4 id="code-template_3">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectBarcodeTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_3">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_3">Low-level calls</h4>
+<hr />
+<h3 id="detect-dominant-color-node"><strong><em>Detect dominant color Node</em></strong></h3>
+<h4 id="code-template_4">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectDominantColorTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_4">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_4">Low-level calls</h4>
+<hr />
+<h3 id="detect-face-node"><strong><em>Detect face Node</em></strong></h3>
+<h4 id="code-template_5">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectFaceTekNode(_id)
+n.setParameters(duration = _duration)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_5">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_duration</code>: Amount of time to search for face</li>
+</ul>
+<h4 id="low-level-calls_5">Low-level calls</h4>
+<hr />
+<h3 id="detect-gender-node"><strong><em>Detect gender Node</em></strong></h3>
+<h4 id="code-template_6">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectGenderTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_6">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_6">Low-level calls</h4>
+<hr />
+<h3 id="detect-language-from-audio-node"><strong><em>Detect language from audio Node</em></strong></h3>
+<h4 id="code-template_7">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectLanguageFromAudioTekNode(_id)
+n.setParameters(duration = _duration)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_7">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_duration</code>: Duration of the captured audio.</li>
+</ul>
+<h4 id="low-level-calls_7">Low-level calls</h4>
+<hr />
+<h3 id="detect-language-from-text-node"><strong><em>Detect language from text Node</em></strong></h3>
+<h4 id="code-template_8">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectLanguageFromTextTekNode(_id)
+n.setParameters(text = _text)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_8">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_text</code>: The text for which language will be detected.</li>
+</ul>
+<h4 id="low-level-calls_8">Low-level calls</h4>
+<hr />
+<h3 id="detect-motion-node"><strong><em>Detect motion Node</em></strong></h3>
+<h4 id="code-template_9">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectMotionTekNode(_id)
+n.setParameters(duration = _duration)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_9">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_duration</code>: Amount of time to capture a video in which the motion detection will be performed.</li>
+</ul>
+<h4 id="low-level-calls_9">Low-level calls</h4>
+<hr />
+<h3 id="detect-qr-code-node"><strong><em>Detect QR code Node</em></strong></h3>
+<h4 id="code-template_10">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectQrCodeTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_10">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_10">Low-level calls</h4>
+<hr />
+<h3 id="detect-sentiment-from-text-node"><strong><em>Detect sentiment from text Node</em></strong></h3>
+<h4 id="code-template_11">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectSentimentFromTextTekNode(_id)
+n.setParameters(text = _text)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_11">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_text</code>: The text whose sentiment will be detected</li>
+</ul>
+<h4 id="low-level-calls_11">Low-level calls</h4>
+<hr />
+<h3 id="detect-sound-node"><strong><em>Detect sound Node</em></strong></h3>
+<h4 id="code-template_12">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectSoundTekNode(_id)
+n.setParameters(duration = _duration)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_12">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_duration</code>: Amount of time to record the sound in which to detect noise</li>
+</ul>
+<h4 id="low-level-calls_12">Low-level calls</h4>
+<hr />
+<h3 id="detect-touch-node"><strong><em>Detect touch Node</em></strong></h3>
+<h4 id="code-template_13">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DetectTouchTekNode(_id)
+n.setParameters(parts = _parts, duration = _duration)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_13">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_parts</code>: List of buttons or parts for touch detection. Must be of type <a href="../enums/#tactile-enum">Tactile enum</a></li>
+<li><code>_duration</code>: Amount of time for the detection</li>
+</ul>
+<h4 id="low-level-calls_13">Low-level calls</h4>
+<hr />
+<h3 id="dice-node"><strong><em>Dice Node</em></strong></h3>
+<h4 id="code-template_14">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DiceTekNode(_id)
+n.setNextNodeProbabilistic(_n_id_1, _weight_1)
+n.setNextNodeProbabilistic(_n_id_2, _weight_2)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_14">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_n_id_#</code>: Id of the next node, with probability <code>_weight_#</code></li>
+</ul>
+<h4 id="low-level-calls_14">Low-level calls</h4>
+<hr />
+<h3 id="display-emotion-node"><strong><em>Display emotion Node</em></strong></h3>
+<h4 id="code-template_15">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = DisplayEmotionTekNode(_id)
+n.setParameters(emotion = _emotion)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_15">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_emotion</code>: A variable of type <a href="../enums/#sentiments-enum">Sentiments enum</a></li>
+</ul>
+<h4 id="low-level-calls_15">Low-level calls</h4>
+<hr />
+<h3 id="get-weather"><strong><em>Get weather</em></strong></h3>
+<h4 id="code-template_16">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = GetWeatherTekNode(_id)
+n.setParameters(location = _location, country = _country, report = _report)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_16">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_location</code>: A location (e.g. a city)</li>
+<li><code>_country</code>: An <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 country code</a></li>
+</ul>
+<h4 id="low-level-calls_16">Low-level calls</h4>
+<hr />
+<h3 id="learn-emotion-node"><strong><em>Learn emotion Node</em></strong></h3>
+<h4 id="code-template_17">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = LearnEmotionTekNode(_id)
+n.setParameters(name = _name)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_17">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_name</code>: Name of the emotion to be learned. Must be unique among emotions.</li>
+</ul>
+<h4 id="low-level-calls_17">Low-level calls</h4>
+<hr />
+<h3 id="learn-motion-node"><strong><em>Learn Motion Node</em></strong></h3>
+<h4 id="code-template_18">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = LearnMotionTekNode(_id)
+n.setParameters(name = _name)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_18">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_name</code>: Name of the motion to be learned. Must be unique among motions.</li>
+</ul>
+<h4 id="low-level-calls_18">Low-level calls</h4>
+<hr />
+<h3 id="listen-node"><strong><em>Listen Node</em></strong></h3>
+<h4 id="code-template_19">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = ListenTekNode(_id)
+n.setParameters(duration = _duration, vocabulary = _vocabulary)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_19">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_duration</code>: Duration to listen to command</li>
+<li><code>_vocabulary</code>: A list of strings to perform speech detection from</li>
+</ul>
+<h4 id="low-level-calls_19">Low-level calls</h4>
+<hr />
+<h3 id="preemption-node"><strong><em>Preemption Node</em></strong></h3>
+<h4 id="code-template_20">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = PreemptorTekNode(_id)
+n.setParameters(preempt_executors  = _execs, condition  = _cond)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_20">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_execs</code>: List of executors to preempt</li>
+<li><code>_cond</code>: If this condition is valid, the <code>_execs</code> will be preempted. Must be of type <a href="../conditions">Condition</a></li>
+</ul>
+<h4 id="low-level-calls_20">Low-level calls</h4>
+<hr />
+<h3 id="record-sound-node"><strong><em>Record sound Node</em></strong></h3>
+<h4 id="code-template_21">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = RecordSoundTekNode(_id)
+n.setParameters(name  = _name, duration  = _dura, part = _part)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_21">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_name</code>: A string denoting a name for the recorded sound</li>
+<li><code>_duration</code>: Duration of the recording</li>
+<li><code>_part</code>: A <a href="../enums/#tactile-enum">Tactile</a> to be pressed for the recording to stop. Add <code>None</code> if this is not desired.</li>
+</ul>
+<h4 id="low-level-calls_21">Low-level calls</h4>
+<hr />
+<h3 id="replay-motion-node"><strong><em>Replay motion Node</em></strong></h3>
+<h4 id="code-template_22">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = ReplayMotionTekNode(_id)
+n.setParameters(name  = _name)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_22">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_name</code>: The name of the recorded motion to be played</li>
+</ul>
+<h4 id="low-level-calls_22">Low-level calls</h4>
+<hr />
+<h3 id="replay-sound-node"><strong><em>Replay sound Node</em></strong></h3>
+<h4 id="code-template_23">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = ReplaySoundTekNode(_id)
+n.setParameters(name  = _name, volume = _volume)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_23">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_name</code>: The name of the recorded sound to be played</li>
+</ul>
+<h4 id="low-level-calls_23">Low-level calls</h4>
+<hr />
+<h3 id="robot-motion-node"><strong><em>Robot motion Node</em></strong></h3>
+<h4 id="code-template_24">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = RobotMotionTekNode(_id)
+n.setParameters(distance  = _distance, duration = _duration, direction = _direction, linear = _linear, rotational = _rotational, type = _type, speed = _speed)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_24">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_distance</code>: The distance to travel</li>
+<li><code>_duration</code>: Amount of time to move</li>
+<li><code>_direction</code>: Of type <a href="../enums/#directions-enum">Directions enum</a></li>
+<li><code>_linear</code>: Linear velocity (float)</li>
+<li><code>_rotational</code>: Rotational velocity (float)</li>
+<li><code>_type</code>: Motion type of type <a href="../enums/#motiontype-enum">MotionType</a></li>
+<li><code>_speed</code>: Float number denoting the motion speed</li>
+</ul>
+<h4 id="low-level-calls_24">Low-level calls</h4>
+<hr />
+<h3 id="robot-turn-node"><strong><em>Robot turn Node</em></strong></h3>
+<h4 id="code-template_25">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = RobotTurnTekNode(_id)
+n.setParameters(type = _type, angle = _angle, direction = _direction, speed = _speed, duration = _duration)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_25">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_type</code>: Motion type of type <a href="../enums/#motiontype-enum">MotionType</a></li>
+<li><code>_angle</code>: Angle to turn in rads</li>
+<li><code>_direction</code>: Of type <a href="../enums/#directions-enum">Directions enum</a></li>
+<li><code>_speed</code>: Float number denoting the motion speed</li>
+<li><code>_duration</code>: Amount of time to move</li>
+</ul>
+<h4 id="low-level-calls_25">Low-level calls</h4>
+<hr />
+<h3 id="sleep-node"><strong><em>Sleep Node</em></strong></h3>
+<h4 id="code-template_26">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = SleepTekNode(_id)
+n.setParameters(duration = _duration)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_26">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_duration</code>: Amount of time to sleep</li>
+</ul>
+<h4 id="low-level-calls_26">Low-level calls</h4>
+<hr />
+<h3 id="start-node"><strong><em>Start Node</em></strong></h3>
+<h4 id="code-template_27">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = StartTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_27">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_27">Low-level calls</h4>
+<hr />
+<h3 id="stop-node"><strong><em>Stop Node</em></strong></h3>
+<h4 id="code-template_28">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = StopTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_28">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_28">Low-level calls</h4>
+<hr />
+<h3 id="talk-node"><strong><em>Talk Node</em></strong></h3>
+<h4 id="code-template_29">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = TalkTekNode(_id)
+n.setParameters(texts = _texts, language = _language, volume = _volume)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_29">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_texts</code>: A list of strings to be spoken</li>
+<li><code>_language</code>: A language code of type <a href="../enums/#languages-enum">Languages</a></li>
+<li><code>_volume</code>: Volume from 0 to 100</li>
+</ul>
+<h4 id="low-level-calls_29">Low-level calls</h4>
+<hr />
+<h3 id="threads-node"><strong><em>Threads Node</em></strong></h3>
+<h4 id="code-template_30">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = ThreadsTekNode(_id)
+n.setParameters(executors = _execs)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_30">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_execs</code>: Ids of the executors to be started in parallel</li>
+</ul>
+<h4 id="low-level-calls_30">Low-level calls</h4>
+<hr />
+<h3 id="transition-node"><strong><em>Transition Node</em></strong></h3>
+<h4 id="code-template_31">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = TransitionTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_31">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_31">Low-level calls</h4>
+<hr />
+<h3 id="translate-from-audio-node"><strong><em>Translate from audio Node</em></strong></h3>
+<h4 id="code-template_32">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = TranslateFromAudioTekNode(_id)
+n.setParameters(recording_time = _rec_time, source_lang = _s_lang, target_lang = _t_lang)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_32">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_rec_time</code>: Time to record</li>
+<li><code>_s_lang</code>: Language of the recording, of type <a href="../enums/#languages-enum">Languages</a></li>
+<li><code>_t_lang</code>: Target language, of type <a href="../enums/#languages-enum">Languages</a></li>
+</ul>
+<h4 id="low-level-calls_32">Low-level calls</h4>
+<hr />
+<h3 id="translate-from-text-node"><strong><em>Translate from text Node</em></strong></h3>
+<h4 id="code-template_33">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = TranslateFromTextTekNode(_id)
+n.setParameters(text = _text, source_lang = _s_lang, target_lang = _t_lang)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_33">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_text</code>: Text to be translated</li>
+<li><code>_s_lang</code>: Language of the text, of type <a href="../enums/#languages-enum">Languages</a></li>
+<li><code>_t_lang</code>: Target language, of type <a href="../enums/#languages-enum">Languages</a></li>
+</ul>
+<h4 id="low-level-calls_33">Low-level calls</h4>
+<hr />
+<h3 id="turn-leds-off-node"><strong><em>Turn leds off Node</em></strong></h3>
+<h4 id="code-template_34">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = TurnLedsOffTekNode(_id)
+
+n.execute()
+</code></pre>
+
+<h4 id="parameters_34">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+</ul>
+<h4 id="low-level-calls_34">Low-level calls</h4>
+<hr />
+<h3 id="turn-leds-on-node"><strong><em>Turn leds on Node</em></strong></h3>
+<h4 id="code-template_35">Code template:</h4>
+<pre><code class="python">from r4a_apis.utilities import *
+from r4a_apis.tek_nodes import *
+
+n = TurnLedsOnTekNode(_id)
+
+n.execute(color = _color, brightness = _bright)
+</code></pre>
+
+<h4 id="parameters_35">Parameters</h4>
+<ul>
+<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
+<li><code>_color</code>: A color of type <a href="../enums/#colors-enum">Colors</a></li>
+<li><code>_bright</code>: Brightness between [0, 100]</li>
+</ul>
+<h4 id="low-level-calls_35">Low-level calls</h4></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -203,21 +1043,21 @@
         <script src="../js/base.js" defer></script>
         <script src="../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form role="form">
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -226,12 +1066,12 @@
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
