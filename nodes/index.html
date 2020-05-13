@@ -143,6 +143,10 @@
 </li>
                                     
 <li>
+    <a href="../cloud_age_detection/" class="dropdown-item">Age detection API</a>
+</li>
+                                    
+<li>
     <a href="../cloud_dominant_color/" class="dropdown-item">Dominant color API</a>
 </li>
                                     
@@ -172,6 +176,10 @@
                                     
 <li>
     <a href="../cloud_speech_to_text/" class="dropdown-item">Speech-2-text API</a>
+</li>
+                                    
+<li>
+    <a href="../cloud_sentiment_detection/" class="dropdown-item">Sentiment detection API</a>
 </li>
                                     
 <li>
@@ -367,7 +375,7 @@ except TekException:
 <p>Next, the individual Nodes shall be presented.</p>
 <h1 id="teknodes">TekNodes</h1>
 <hr />
-<h3 id="camera-motion-node"><strong><em>Camera motion Node</em></strong></h3>
+<h3 id="camera-motion-node">☑ <strong><em>Camera motion Node</em></strong></h3>
 <p>Moves the pan-tilt servo motors on top of which is the camera.</p>
 <h4 id="code-template">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
@@ -390,8 +398,12 @@ n.execute()
 <ul>
 <li><a href="../pantilt/#pan-tilt-api">RobotAPI.movePanTilt</a></li>
 </ul>
+<h4 id="affected-redis-variables">Affected Redis variables</h4>
+<ul>
+<li>None</li>
+</ul>
 <hr />
-<h3 id="counter-node"><strong><em>Counter Node</em></strong></h3>
+<h3 id="counter-node">☑ <strong><em>Counter Node</em></strong></h3>
 <p>Implements a counter with a specific name. The first time this node's execute is called, the initial value is given. Each next time, it is increased by <code>change_by</code>.</p>
 <h4 id="code-template_1">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
@@ -411,8 +423,15 @@ n.execute()
 <li><code>_change_by</code>: The step to increase/decrease</li>
 </ul>
 <h4 id="low-level-calls_1">Low-level calls</h4>
+<ul>
+<li><a href="../generic_counter/">Counter API</a></li>
+</ul>
+<h4 id="affected-redis-variables_1">Affected Redis variables</h4>
+<ul>
+<li><code>counters.NAME</code></li>
+</ul>
 <hr />
-<h3 id="detect-age-node"><strong><em>Detect age Node</em></strong></h3>
+<h3 id="detect-age-node">☑ <strong><em>Detect age Node</em></strong></h3>
 <p>Detects age using the camera. It captures an image, performs face detection and if a face is found it tries to detect its age.</p>
 <h4 id="code-template_2">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
@@ -428,8 +447,17 @@ n.execute()
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
 <h4 id="low-level-calls_2">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_age_detection/">Age detection API</a></li>
+</ul>
+<h4 id="affected-redis-variables_2">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.age</code></li>
+<li><code>variables.cloud.age.detected</code></li>
+</ul>
 <hr />
-<h3 id="detect-barcode-node"><strong><em>Detect barcode Node</em></strong></h3>
+<h3 id="detect-barcode-node">☑ <strong><em>Detect barcode Node</em></strong></h3>
+<p>Detects a barcode using the camera.</p>
 <h4 id="code-template_3">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -444,8 +472,17 @@ n.execute()
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
 <h4 id="low-level-calls_3">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_qr_barcode/">QR/Barcode API</a></li>
+</ul>
+<h4 id="affected-redis-variables_3">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.barcode.detected</code></li>
+<li><code>variables.cloud.barcode.text</code></li>
+</ul>
 <hr />
-<h3 id="detect-dominant-color-node"><strong><em>Detect dominant color Node</em></strong></h3>
+<h3 id="detect-dominant-color-node">☑ <strong><em>Detect dominant color Node</em></strong></h3>
+<p>Captures an image and detects the dominant color in it.</p>
 <h4 id="code-template_4">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -460,8 +497,17 @@ n.execute()
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
 <h4 id="low-level-calls_4">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_dominant_color/">Dominant color API</a></li>
+</ul>
+<h4 id="affected-redis-variables_4">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.detect_dominant_color.color</code></li>
+<li><code>variables.cloud.detect_dominant_color.raw</code></li>
+</ul>
 <hr />
-<h3 id="detect-face-node"><strong><em>Detect face Node</em></strong></h3>
+<h3 id="detect-face-node">☑ <strong><em>Detect face Node</em></strong></h3>
+<p>Detects human faces from camera.</p>
 <h4 id="code-template_5">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -478,8 +524,17 @@ n.execute()
 <li><code>_duration</code>: Amount of time to search for face</li>
 </ul>
 <h4 id="low-level-calls_5">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_face_detection/">Face detection API</a></li>
+</ul>
+<h4 id="affected-redis-variables_5">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.detect_face.detected</code></li>
+<li><code>variables.cloud.detect_face.faces</code></li>
+</ul>
 <hr />
-<h3 id="detect-gender-node"><strong><em>Detect gender Node</em></strong></h3>
+<h3 id="detect-gender-node">☑ <strong><em>Detect gender Node</em></strong></h3>
+<p>Detects human gender from camera.</p>
 <h4 id="code-template_6">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -494,8 +549,17 @@ n.execute()
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
 <h4 id="low-level-calls_6">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_gender_detection/">Gender detection API</a></li>
+</ul>
+<h4 id="affected-redis-variables_6">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.gender</code></li>
+<li><code>variables.cloud.gender.detected</code></li>
+</ul>
 <hr />
 <h3 id="detect-language-from-audio-node"><strong><em>Detect language from audio Node</em></strong></h3>
+<p>Captures an audio and detects the spoken language.</p>
 <h4 id="code-template_7">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -512,8 +576,16 @@ n.execute()
 <li><code>_duration</code>: Duration of the captured audio.</li>
 </ul>
 <h4 id="low-level-calls_7">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_language_detection/">Language detection</a></li>
+</ul>
+<h4 id="affected-redis-variables_7">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.language_detection.audio</code></li>
+</ul>
 <hr />
 <h3 id="detect-language-from-text-node"><strong><em>Detect language from text Node</em></strong></h3>
+<p>Takes as input a string and outputs the language.</p>
 <h4 id="code-template_8">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -530,8 +602,16 @@ n.execute()
 <li><code>_text</code>: The text for which language will be detected.</li>
 </ul>
 <h4 id="low-level-calls_8">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_language_detection/">Language detection</a></li>
+</ul>
+<h4 id="affected-redis-variables_8">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.language_detection.text</code></li>
+</ul>
 <hr />
 <h3 id="detect-motion-node"><strong><em>Detect motion Node</em></strong></h3>
+<p>Captures a series of frames and executes motion detection.</p>
 <h4 id="code-template_9">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -548,8 +628,16 @@ n.execute()
 <li><code>_duration</code>: Amount of time to capture a video in which the motion detection will be performed.</li>
 </ul>
 <h4 id="low-level-calls_9">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_motion_detection/">Motion detection API</a></li>
+</ul>
+<h4 id="affected-redis-variables_9">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.detect_motion.detected</code></li>
+</ul>
 <hr />
-<h3 id="detect-qr-code-node"><strong><em>Detect QR code Node</em></strong></h3>
+<h3 id="detect-qr-code-node">☑ <strong><em>Detect QR code Node</em></strong></h3>
+<p>Detects QR codes from the camera.</p>
 <h4 id="code-template_10">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -564,8 +652,17 @@ n.execute()
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
 <h4 id="low-level-calls_10">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_qr_barcode/">QR detection</a></li>
+</ul>
+<h4 id="affected-redis-variables_10">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.qr.detected</code></li>
+<li><code>variables.cloud.qr.text</code></li>
+</ul>
 <hr />
 <h3 id="detect-sentiment-from-text-node"><strong><em>Detect sentiment from text Node</em></strong></h3>
+<p>Detects sentiment, having a string as input</p>
 <h4 id="code-template_11">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -582,8 +679,18 @@ n.execute()
 <li><code>_text</code>: The text whose sentiment will be detected</li>
 </ul>
 <h4 id="low-level-calls_11">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_sentiment_detection/">Sentiment detection API</a></li>
+</ul>
+<h4 id="affected-redis-variables_11">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.detect_sentiment.detected</code></li>
+<li><code>variables.cloud.detect_sentiment.detected_sentiment</code></li>
+<li><code>variables.cloud.detect_sentiment.detected_sentiment.sound</code></li>
+</ul>
 <hr />
-<h3 id="detect-sound-node"><strong><em>Detect sound Node</em></strong></h3>
+<h3 id="detect-sound-node">☑ <strong><em>Detect sound Node</em></strong></h3>
+<p>Captures audio and detects sound in it.</p>
 <h4 id="code-template_12">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -600,8 +707,16 @@ n.execute()
 <li><code>_duration</code>: Amount of time to record the sound in which to detect noise</li>
 </ul>
 <h4 id="low-level-calls_12">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_sound_detection/">Sound detection API</a></li>
+</ul>
+<h4 id="affected-redis-variables_12">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.detect_sound.detected</code></li>
+</ul>
 <hr />
-<h3 id="detect-touch-node"><strong><em>Detect touch Node</em></strong></h3>
+<h3 id="detect-touch-node">☑ <strong><em>Detect touch Node</em></strong></h3>
+<p>Detects touch using the tactile sensors.</p>
 <h4 id="code-template_13">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -619,8 +734,29 @@ n.execute()
 <li><code>_duration</code>: Amount of time for the detection</li>
 </ul>
 <h4 id="low-level-calls_13">Low-level calls</h4>
+<ul>
+<li><a href="../buttons/#buttons-api">RobotAPI.getButtonChanges</a></li>
+</ul>
+<h4 id="affected-redis-variables_13">Affected Redis variables</h4>
+<ul>
+<li><code>variables.robot.buttons.touch_detected</code></li>
+<li><code>variables.robot.buttons.pressed_part</code></li>
+<li><code>variables.robot.buttons.F</code></li>
+<li><code>variables.robot.buttons.FL</code></li>
+<li><code>variables.robot.buttons.FR</code></li>
+<li><code>variables.robot.buttons.B</code></li>
+<li><code>variables.robot.buttons.BR</code></li>
+<li><code>variables.robot.buttons.BL</code></li>
+<li><code>variables.robot.buttons.L</code></li>
+<li><code>variables.robot.buttons.R</code></li>
+<li><code>variables.robot.buttons.G1</code></li>
+<li><code>variables.robot.buttons.G2</code></li>
+<li><code>variables.robot.buttons.G3</code></li>
+<li><code>variables.robot.buttons.G4</code></li>
+</ul>
 <hr />
-<h3 id="dice-node"><strong><em>Dice Node</em></strong></h3>
+<h3 id="dice-node">☑ <strong><em>Dice Node</em></strong></h3>
+<p>Probabilistically chooses next node.</p>
 <h4 id="code-template_14">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -638,8 +774,16 @@ n.execute()
 <li><code>_n_id_#</code>: Id of the next node, with probability <code>_weight_#</code></li>
 </ul>
 <h4 id="low-level-calls_14">Low-level calls</h4>
+<ul>
+<li>None</li>
+</ul>
+<h4 id="affected-redis-variables_14">Affected Redis variables</h4>
+<ul>
+<li>None</li>
+</ul>
 <hr />
-<h3 id="display-emotion-node"><strong><em>Display emotion Node</em></strong></h3>
+<h3 id="display-emotion-node">☑ <strong><em>Display emotion Node</em></strong></h3>
+<p>Displays an emotion using the screen and leds.</p>
 <h4 id="code-template_15">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -656,8 +800,16 @@ n.execute()
 <li><code>_emotion</code>: A variable of type <a href="../enums/#sentiments-enum">Sentiments enum</a></li>
 </ul>
 <h4 id="low-level-calls_15">Low-level calls</h4>
+<ul>
+<li><a href="../leds/#leds-api">RobotAPI.ledsColorWipe</a></li>
+</ul>
+<h4 id="affected-redis-variables_15">Affected Redis variables</h4>
+<ul>
+<li>None</li>
+</ul>
 <hr />
-<h3 id="get-weather"><strong><em>Get weather</em></strong></h3>
+<h3 id="get-weather">☑ <strong><em>Get weather</em></strong></h3>
+<p>Gets the weather using an online API.</p>
 <h4 id="code-template_16">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -675,8 +827,20 @@ n.execute()
 <li><code>_country</code>: An <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 country code</a></li>
 </ul>
 <h4 id="low-level-calls_16">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_weather/">Weather detection API</a></li>
+</ul>
+<h4 id="affected-redis-variables_16">Affected Redis variables</h4>
+<ul>
+<li><code>variables.cloud.weather</code></li>
+<li><code>variables.cloud.weather.description</code></li>
+<li><code>variables.cloud.weather.temperature</code></li>
+<li><code>variables.cloud.weather.humidity</code></li>
+<li><code>variables.cloud.weather.pressure</code></li>
+</ul>
 <hr />
 <h3 id="learn-emotion-node"><strong><em>Learn emotion Node</em></strong></h3>
+<p>Learn an emotion using the touch screen.</p>
 <h4 id="code-template_17">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -693,8 +857,16 @@ n.execute()
 <li><code>_name</code>: Name of the emotion to be learned. Must be unique among emotions.</li>
 </ul>
 <h4 id="low-level-calls_17">Low-level calls</h4>
+<ul>
+<li>None</li>
+</ul>
+<h4 id="affected-redis-variables_17">Affected Redis variables</h4>
+<ul>
+<li>None</li>
+</ul>
 <hr />
 <h3 id="learn-motion-node"><strong><em>Learn Motion Node</em></strong></h3>
+<p>Learns a motion via the user.</p>
 <h4 id="code-template_18">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -711,8 +883,16 @@ n.execute()
 <li><code>_name</code>: Name of the motion to be learned. Must be unique among motions.</li>
 </ul>
 <h4 id="low-level-calls_18">Low-level calls</h4>
+<ul>
+<li>None</li>
+</ul>
+<h4 id="affected-redis-variables_18">Affected Redis variables</h4>
+<ul>
+<li>None</li>
+</ul>
 <hr />
 <h3 id="listen-node"><strong><em>Listen Node</em></strong></h3>
+<p>Listens for X seconds and tries to perform Speech to Text recognition, using a predefined dictionary.</p>
 <h4 id="code-template_19">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -730,8 +910,12 @@ n.execute()
 <li><code>_vocabulary</code>: A list of strings to perform speech detection from</li>
 </ul>
 <h4 id="low-level-calls_19">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_speech_to_text/">Speech-2-Text API</a></li>
+</ul>
 <hr />
-<h3 id="preemption-node"><strong><em>Preemption Node</em></strong></h3>
+<h3 id="preemption-node">☑ <strong><em>Preemption Node</em></strong></h3>
+<p>Preempts a number of <a href="../nodes/#node-executor">executors</a>, based on a condition.</p>
 <h4 id="code-template_20">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -745,12 +929,12 @@ n.execute()
 <h4 id="parameters_20">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
-<li><code>_execs</code>: List of executors to preempt</li>
+<li><code>_execs</code>: List of <a href="../nodes/#node-executor">executors</a> to preempt</li>
 <li><code>_cond</code>: If this condition is valid, the <code>_execs</code> will be preempted. Must be of type <a href="../conditions">Condition</a></li>
 </ul>
-<h4 id="low-level-calls_20">Low-level calls</h4>
 <hr />
-<h3 id="record-sound-node"><strong><em>Record sound Node</em></strong></h3>
+<h3 id="record-sound-node">☑ <strong><em>Record sound Node</em></strong></h3>
+<p>Records an audio clip using the microphone.</p>
 <h4 id="code-template_21">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
@@ -768,28 +952,18 @@ n.execute()
 <li><code>_duration</code>: Duration of the recording</li>
 <li><code>_part</code>: A <a href="../enums/#tactile-enum">Tactile</a> to be pressed for the recording to stop. Add <code>None</code> if this is not desired.</li>
 </ul>
-<h4 id="low-level-calls_21">Low-level calls</h4>
-<hr />
-<h3 id="replay-motion-node"><strong><em>Replay motion Node</em></strong></h3>
-<h4 id="code-template_22">Code template:</h4>
-<pre><code class="python">from r4a_apis.utilities import *
-from r4a_apis.tek_nodes import *
-
-n = ReplayMotionTekNode(_id)
-n.setParameters(name  = _name)
-
-n.execute()
-</code></pre>
-
-<h4 id="parameters_22">Parameters</h4>
+<h4 id="low-level-calls_20">Low-level calls</h4>
 <ul>
-<li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
-<li><code>_name</code>: The name of the recorded motion to be played</li>
+<li><a href="../microphone/#microphone-api">RobotAPI.recordSound</a></li>
 </ul>
-<h4 id="low-level-calls_22">Low-level calls</h4>
+<h4 id="affected-redis-variables_19">Affected Redis variables</h4>
+<ul>
+<li><code>sounds.NAME</code></li>
+</ul>
 <hr />
-<h3 id="replay-sound-node"><strong><em>Replay sound Node</em></strong></h3>
-<h4 id="code-template_23">Code template:</h4>
+<h3 id="replay-sound-node">☑ <strong><em>Replay sound Node</em></strong></h3>
+<p>Replays a sound, captured with a RecordSoundTekNode.</p>
+<h4 id="code-template_22">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -799,15 +973,19 @@ n.setParameters(name  = _name, volume = _volume)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_23">Parameters</h4>
+<h4 id="parameters_22">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 <li><code>_name</code>: The name of the recorded sound to be played</li>
 </ul>
-<h4 id="low-level-calls_23">Low-level calls</h4>
+<h4 id="low-level-calls_21">Low-level calls</h4>
+<ul>
+<li><a href="../speakers/#speakers-api">RobotAPI.replaySound</a></li>
+</ul>
 <hr />
-<h3 id="robot-motion-node"><strong><em>Robot motion Node</em></strong></h3>
-<h4 id="code-template_24">Code template:</h4>
+<h3 id="robot-motion-node">☑ <strong><em>Robot motion Node</em></strong></h3>
+<p>Sets the motion of the robot's chassis.</p>
+<h4 id="code-template_23">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -817,7 +995,7 @@ n.setParameters(distance  = _distance, duration = _duration, direction = _direct
 n.execute()
 </code></pre>
 
-<h4 id="parameters_24">Parameters</h4>
+<h4 id="parameters_23">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 <li><code>_distance</code>: The distance to travel</li>
@@ -828,10 +1006,20 @@ n.execute()
 <li><code>_type</code>: Motion type of type <a href="../enums/#motiontype-enum">MotionType</a></li>
 <li><code>_speed</code>: Float number denoting the motion speed</li>
 </ul>
-<h4 id="low-level-calls_24">Low-level calls</h4>
+<p>The above parameters should be set with care, using the following combinations</p>
+<ul>
+<li><code>_type = MotionType.FOLLOW_LINE</code>: Set only <code>_speed</code></li>
+<li><code>_type = MotionType.BASIC</code>: Set <code>_direction</code> and <code>_speed</code>. Also set either <code>_distance</code> or <code>_duration</code>.</li>
+<li><code>_type = MotionType.SPEED_BASED</code>: Set <code>_linear</code> and <code>_rotational</code>. Also set either <code>_distance</code> or <code>_duration</code>.</li>
+</ul>
+<h4 id="low-level-calls_22">Low-level calls</h4>
+<ul>
+<li><a href="../motion/#body-motion-api">RobotAPI.moveBody</a></li>
+</ul>
 <hr />
-<h3 id="robot-turn-node"><strong><em>Robot turn Node</em></strong></h3>
-<h4 id="code-template_25">Code template:</h4>
+<h3 id="robot-turn-node">☑ <strong><em>Robot turn Node</em></strong></h3>
+<p>Performs rotational motion of the robot's chassis.</p>
+<h4 id="code-template_24">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -841,7 +1029,7 @@ n.setParameters(type = _type, angle = _angle, direction = _direction, speed = _s
 n.execute()
 </code></pre>
 
-<h4 id="parameters_25">Parameters</h4>
+<h4 id="parameters_24">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 <li><code>_type</code>: Motion type of type <a href="../enums/#motiontype-enum">MotionType</a></li>
@@ -850,10 +1038,20 @@ n.execute()
 <li><code>_speed</code>: Float number denoting the motion speed</li>
 <li><code>_duration</code>: Amount of time to move</li>
 </ul>
-<h4 id="low-level-calls_25">Low-level calls</h4>
+<p>The above parameters should be set with care, using the following combinations</p>
+<ul>
+<li><code>_type = MotionType.BASIC</code>: Set only <code>_direction</code></li>
+<li><code>_type = MotionType.ANGLE_BASED</code>: Set <code>_angle</code> and <code>_speed</code>.</li>
+<li><code>_type = MotionType.TIME_BASED</code>: Set <code>_duration</code> and <code>_speed</code>.</li>
+</ul>
+<h4 id="low-level-calls_23">Low-level calls</h4>
+<ul>
+<li><a href="../motion/#body-motion-api">RobotAPI.moveBody</a></li>
+</ul>
 <hr />
-<h3 id="sleep-node"><strong><em>Sleep Node</em></strong></h3>
-<h4 id="code-template_26">Code template:</h4>
+<h3 id="sleep-node">☑ <strong><em>Sleep Node</em></strong></h3>
+<p>Just waits for a specific amount of time.</p>
+<h4 id="code-template_25">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -863,15 +1061,19 @@ n.setParameters(duration = _duration)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_26">Parameters</h4>
+<h4 id="parameters_25">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 <li><code>_duration</code>: Amount of time to sleep</li>
 </ul>
-<h4 id="low-level-calls_26">Low-level calls</h4>
+<h4 id="low-level-calls_24">Low-level calls</h4>
+<ul>
+<li><a href="../generic_sleep/">Sleep API</a></li>
+</ul>
 <hr />
-<h3 id="start-node"><strong><em>Start Node</em></strong></h3>
-<h4 id="code-template_27">Code template:</h4>
+<h3 id="start-node">☑ <strong><em>Start Node</em></strong></h3>
+<p>The start node. Must exist in a single instance in one application.</p>
+<h4 id="code-template_26">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -880,14 +1082,14 @@ n = StartTekNode(_id)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_27">Parameters</h4>
+<h4 id="parameters_26">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
-<h4 id="low-level-calls_27">Low-level calls</h4>
 <hr />
-<h3 id="stop-node"><strong><em>Stop Node</em></strong></h3>
-<h4 id="code-template_28">Code template:</h4>
+<h3 id="stop-node">☑ <strong><em>Stop Node</em></strong></h3>
+<p>The terminal node. Must exist in each accepting/terminating state of the FSM/FSA.</p>
+<h4 id="code-template_27">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -896,14 +1098,14 @@ n = StopTekNode(_id)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_28">Parameters</h4>
+<h4 id="parameters_27">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
-<h4 id="low-level-calls_28">Low-level calls</h4>
 <hr />
-<h3 id="talk-node"><strong><em>Talk Node</em></strong></h3>
-<h4 id="code-template_29">Code template:</h4>
+<h3 id="talk-node">☑ <strong><em>Talk Node</em></strong></h3>
+<p>Makes the robot dictate a list of strings.</p>
+<h4 id="code-template_28">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -913,17 +1115,21 @@ n.setParameters(texts = _texts, language = _language, volume = _volume)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_29">Parameters</h4>
+<h4 id="parameters_28">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 <li><code>_texts</code>: A list of strings to be spoken</li>
 <li><code>_language</code>: A language code of type <a href="../enums/#languages-enum">Languages</a></li>
 <li><code>_volume</code>: Volume from 0 to 100</li>
 </ul>
-<h4 id="low-level-calls_29">Low-level calls</h4>
+<h4 id="low-level-calls_25">Low-level calls</h4>
+<ul>
+<li><a href="../speakers/#speakers-api">RobotAPI.speak</a></li>
+</ul>
 <hr />
-<h3 id="threads-node"><strong><em>Threads Node</em></strong></h3>
-<h4 id="code-template_30">Code template:</h4>
+<h3 id="threads-node">☑ <strong><em>Threads Node</em></strong></h3>
+<p>Implements a threading execution, taking as input the <a href="../nodes/#node-executor">Node executors</a>, being the threads.</p>
+<h4 id="code-template_29">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -933,15 +1139,15 @@ n.setParameters(executors = _execs)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_30">Parameters</h4>
+<h4 id="parameters_29">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
-<li><code>_execs</code>: Ids of the executors to be started in parallel</li>
+<li><code>_execs</code>: Ids of the <a href="../nodes/#node-executor">executors</a> to be started in parallel</li>
 </ul>
-<h4 id="low-level-calls_30">Low-level calls</h4>
 <hr />
-<h3 id="transition-node"><strong><em>Transition Node</em></strong></h3>
-<h4 id="code-template_31">Code template:</h4>
+<h3 id="transition-node">☑ <strong><em>Transition Node</em></strong></h3>
+<p>Just an empty node. Used for Go-to implementation.</p>
+<h4 id="code-template_30">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -950,14 +1156,14 @@ n = TransitionTekNode(_id)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_31">Parameters</h4>
+<h4 id="parameters_30">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
-<h4 id="low-level-calls_31">Low-level calls</h4>
 <hr />
 <h3 id="translate-from-audio-node"><strong><em>Translate from audio Node</em></strong></h3>
-<h4 id="code-template_32">Code template:</h4>
+<p>Captures an audio clip and translates it.</p>
+<h4 id="code-template_31">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -967,17 +1173,21 @@ n.setParameters(recording_time = _rec_time, source_lang = _s_lang, target_lang =
 n.execute()
 </code></pre>
 
-<h4 id="parameters_32">Parameters</h4>
+<h4 id="parameters_31">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 <li><code>_rec_time</code>: Time to record</li>
 <li><code>_s_lang</code>: Language of the recording, of type <a href="../enums/#languages-enum">Languages</a></li>
 <li><code>_t_lang</code>: Target language, of type <a href="../enums/#languages-enum">Languages</a></li>
 </ul>
-<h4 id="low-level-calls_32">Low-level calls</h4>
+<h4 id="low-level-calls_26">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_translate_from_audio/">Translate API</a></li>
+</ul>
 <hr />
 <h3 id="translate-from-text-node"><strong><em>Translate from text Node</em></strong></h3>
-<h4 id="code-template_33">Code template:</h4>
+<p>Translates a text.</p>
+<h4 id="code-template_32">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -987,17 +1197,21 @@ n.setParameters(text = _text, source_lang = _s_lang, target_lang = _t_lang)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_33">Parameters</h4>
+<h4 id="parameters_32">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 <li><code>_text</code>: Text to be translated</li>
 <li><code>_s_lang</code>: Language of the text, of type <a href="../enums/#languages-enum">Languages</a></li>
 <li><code>_t_lang</code>: Target language, of type <a href="../enums/#languages-enum">Languages</a></li>
 </ul>
-<h4 id="low-level-calls_33">Low-level calls</h4>
+<h4 id="low-level-calls_27">Low-level calls</h4>
+<ul>
+<li><a href="../cloud_translate_from_audio/">Translate API</a></li>
+</ul>
 <hr />
-<h3 id="turn-leds-off-node"><strong><em>Turn leds off Node</em></strong></h3>
-<h4 id="code-template_34">Code template:</h4>
+<h3 id="turn-leds-off-node">☑ <strong><em>Turn leds off Node</em></strong></h3>
+<p>Turns off all leds of the robot.</p>
+<h4 id="code-template_33">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -1006,14 +1220,18 @@ n = TurnLedsOffTekNode(_id)
 n.execute()
 </code></pre>
 
-<h4 id="parameters_34">Parameters</h4>
+<h4 id="parameters_33">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 </ul>
-<h4 id="low-level-calls_34">Low-level calls</h4>
+<h4 id="low-level-calls_28">Low-level calls</h4>
+<ul>
+<li><a href="../leds/#leds-api">RobotAPI.ledsColorWipe</a></li>
+</ul>
 <hr />
-<h3 id="turn-leds-on-node"><strong><em>Turn leds on Node</em></strong></h3>
-<h4 id="code-template_35">Code template:</h4>
+<h3 id="turn-leds-on-node">☑ <strong><em>Turn leds on Node</em></strong></h3>
+<p>Turns leds on, having as input color and intensity.</p>
+<h4 id="code-template_34">Code template:</h4>
 <pre><code class="python">from r4a_apis.utilities import *
 from r4a_apis.tek_nodes import *
 
@@ -1022,13 +1240,16 @@ n = TurnLedsOnTekNode(_id)
 n.execute(color = _color, brightness = _bright)
 </code></pre>
 
-<h4 id="parameters_35">Parameters</h4>
+<h4 id="parameters_34">Parameters</h4>
 <ul>
 <li><code>_id</code>: Just an integer, denoting the id of the node. Must be unique.</li>
 <li><code>_color</code>: A color of type <a href="../enums/#colors-enum">Colors</a></li>
 <li><code>_bright</code>: Brightness between [0, 100]</li>
 </ul>
-<h4 id="low-level-calls_35">Low-level calls</h4></div>
+<h4 id="low-level-calls_29">Low-level calls</h4>
+<ul>
+<li><a href="../leds/#leds-api">RobotAPI.ledsColorWipe</a></li>
+</ul></div>
             </div>
         </div>
 
