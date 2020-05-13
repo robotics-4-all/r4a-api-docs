@@ -253,12 +253,110 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#the-conditions-class" class="nav-link">The conditions class</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#the-condition-class" class="nav-link">The Condition class</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#the-conditiongroup-class" class="nav-link">The ConditionGroup class</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>Under construction...</p></div>
+<h1 id="the-conditions-class">The conditions class</h1>
+<p>In R4A APIs you can create conditions using two classes, <code>Condition</code> that denotes a single condition or <code>ConditionGroup</code>, denoting a composite condition. Let's see both of them in detail.</p>
+<h2 id="the-condition-class">The <code>Condition</code> class</h2>
+<p>The <code>Condition</code> class implements a single condition. The constructor of the class is as follows:</p>
+<pre><code class="python">def __init__(self,
+  left_operant = None,
+  right_operant = None,
+  operator = None,
+  left_op_type = None,
+  right_op_type = None,
+  left_index = 0,
+  right_index = 0)
+</code></pre>
+
+<p>Let's discuss on each parameter:</p>
+<p><code>left_operant</code> and <code>right_operant</code> are the two operants of the Condition. An operant can be either a constant value (number or string) a <a href="../enums/#tekvariables-enum">TekVariable</a> or a counter variable.</p>
+<p>The specific type of each operant is declared via the <code>left_op_type</code> and <code>right_op_type</code> parameters, which must be of type <code>OperantTypes enum</code>. The possible items are:</p>
+<ul>
+<li>OperantTypes.CONSTANT</li>
+<li>OperantTypes.TEK_VARIABLE</li>
+<li>OperantTypes.COUNTER</li>
+</ul>
+<p>In case of the <code>OperantTypes.COUNTER</code>, the <code>left/right_operant</code> must be assigned the name of the counter.</p>
+<p>The <code>operator</code> parameter declares the logical operator and is of type <code>RelationalOperators enum</code>, with items:</p>
+<ul>
+<li>RelationalOperators.EQUAL</li>
+<li>RelationalOperators.SMALLER</li>
+<li>RelationalOperators.SMALLER_EQUAL</li>
+<li>RelationalOperators.LARGER</li>
+<li>RelationalOperators.LARGER_EQUAL</li>
+<li>RelationalOperators.NOT_EQUAL</li>
+</ul>
+<p>Finally, <code>left/right_index</code> parameters are used when an operant is of type <code>OperantTypes.TEK_VARIABLE</code>, specifying the index of the value that is going to be retrieved from memory (0 is the latest, -1 the previous etc.)</p>
+<p>Each condition is checked, using the <code>check()</code> method, returning either True or False.</p>
+<p>Some examples are:</p>
+<pre><code class="python"># Counter == 4
+condition_cg62  = Condition (
+  left_operant = &quot;Counter&quot;,
+  left_op_type = OperantTypes.COUNTER,
+  operator = RelationalOperators.EQUAL,
+  right_operant = 4.0
+)
+</code></pre>
+
+<pre><code class="python"># Latest face detection result == True
+condition_cg1012  = Condition (
+  left_operant = TekVariables.DETECT_FACE_DETECTED,
+  left_index = 0,
+  operator = RelationalOperators.EQUAL,
+  right_operant = True
+)
+</code></pre>
+
+<h2 id="the-conditiongroup-class">The <code>ConditionGroup</code> class</h2>
+<p>The <code>ConditionGroup</code> implements composite conditions, based on more than 1 <code>Condition</code> objects. This class takes a <code>LogicalOperators enum</code> parameter in its constructor:</p>
+<pre><code class="python">def __init__(self, type)
+</code></pre>
+
+<p>Thus, <code>type</code> can be one of the following:</p>
+<ul>
+<li>LogicalOperators.AND</li>
+<li>LogicalOperators.OR</li>
+<li>LogicalOperators.XOR</li>
+</ul>
+<p>Furthermore, conditions can be added using the <code>addCondition(condition, opp)</code> member, where condition must be of type <code>Condition</code> and if <code>opp</code> is True, the negation of the condition shall be tested.</p>
+<p>An example is the following:</p>
+<pre><code class="python">condition_cg62  = Condition (
+  left_operant = &quot;Counter&quot;,
+  left_op_type = OperantTypes.COUNTER,
+  operator = RelationalOperators.EQUAL,
+  right_operant = 4.0
+)
+
+condition_cg1012  = Condition (
+  left_operant = TekVariables.DETECT_FACE_DETECTED,
+  left_index = 0,
+  operator = RelationalOperators.EQUAL,
+  right_operant = True
+)
+
+cond = ConditionGroup(type = LogicalOperators.AND)
+cond.addCondition(condition_cg62)
+cond.addCondition(condition_cg1012, opp = True)
+</code></pre>
+
+<p>This condition evaluates to True if Counter is equal to 4 and face detection did not find a face in the previous check.</p></div>
             </div>
         </div>
 
