@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -253,12 +249,34 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#motion-detection-api" class="nav-link">Motion detection API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#cloudapidetectmotion" class="nav-link">CloudAPI.detectMotion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="motion-detection-api">Motion detection API</h1>
+<hr />
+<h2 id="cloudapidetectmotion"><em>CloudAPI</em>.<strong>detectMotion</strong></h2>
+<p>Performs motion detection in a video file.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
+<ul>
+<li><code>file</code>: The file path of the video</li>
+</ul>
+<h4 id="output">Output</h4>
+<p>The TekVariables affected are:</p>
+<ul>
+<li><code>TekVariables.MOTION_DETECTION</code>: Bool denoting the motion detection success</li>
+</ul></div>
             </div>
         </div>
 

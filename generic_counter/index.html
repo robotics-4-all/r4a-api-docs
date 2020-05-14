@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -253,12 +249,34 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#counter-api" class="nav-link">Counter API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#genericapicounter" class="nav-link">GenericAPI.counter</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="counter-api">Counter API</h1>
+<hr />
+<h2 id="genericapicounter"><em>GenericAPI</em>.<strong>counter</strong></h2>
+<p>Implements a counter functionality.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
+<ul>
+<li><code>name</code>: The name fo the counter</li>
+<li><code>set_value</code>: The initial value of the counter</li>
+<li><code>change_by</code>: The counter change</li>
+</ul>
+<p>The first time the <em>GenericAPI</em>.<strong>counter</strong> call is invoked with a specific counter name, this counter is initialized and <code>set_value</code> is given. Every next time, the specific counter's value changes by <code>change_by</code>.</p>
+<h4 id="output">Output</h4>
+<p>Alters the memory, under this key: <code>counters.NAME</code>, where the counter's value is kept.</p></div>
             </div>
         </div>
 

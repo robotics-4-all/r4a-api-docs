@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -254,8 +250,20 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#speakers-api" class="nav-link">Speakers API</a>
+            <li class="nav-item" data-level="1"><a href="#speakers-api" class="nav-link">Speakers API</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#robotapispeak" class="nav-link">RobotAPI.speak</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#robotapireplaysound" class="nav-link">RobotAPI.replaySound</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#robotapigetsound" class="nav-link">RobotAPI.getSound</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -263,9 +271,9 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="speakers-api"><strong>Speakers API</strong></h2>
+<h1 id="speakers-api"><strong>Speakers API</strong></h1>
 <hr />
-<h3 id="robotapispeak"><em>RobotAPI</em>.<strong>speak</strong></h3>
+<h2 id="robotapispeak"><em>RobotAPI</em>.<strong>speak</strong></h2>
 <p>A text-to-speech algorithm is used, in order for the device to "speak" in different languages.</p>
 <h4 id="input-arguments">Input arguments</h4>
 <ul>
@@ -275,7 +283,7 @@
 </ul>
 <h4 id="output-variables">Output / Variables</h4>
 <p>This call has no output and does not change any TekVariables.</p>
-<h4 id="examples">Examples ☑</h4>
+<h4 id="examples">Examples</h4>
 <pre><code class="python">import robot_api
 import utilities
 
@@ -289,7 +297,7 @@ out = rapi.speak(utilities.InputMessage({
 </code></pre>
 
 <hr />
-<h3 id="robotapireplaysound"><em>RobotAPI</em>.<strong>replaySound</strong></h3>
+<h2 id="robotapireplaysound"><em>RobotAPI</em>.<strong>replaySound</strong></h2>
 <p>This call reproduces a sound from the speakers. The sound can either be a wav file, or a base64-encoded string.</p>
 <h4 id="input-arguments_1">Input arguments</h4>
 <ul>
@@ -310,6 +318,26 @@ out = rapi.replaySound(utilities.InputMessage({
     'string': '/tmp/tmp.wav',
     'volume': 100
 }))
+</code></pre>
+
+<hr />
+<h2 id="robotapigetsound"><em>RobotAPI</em>.<strong>getSound</strong></h2>
+<p>Retrieves a soud file from memory, using a specific speaker.</p>
+<h4 id="input-arguments_2">Input arguments</h4>
+<ul>
+<li><code>deviceId</code>: The id of a <code>Devices.SPEAKERS</code> device</li>
+<li><code>fromIndex</code>: From what index the data will be retrieved</li>
+<li><code>toIndex</code>: To  what index the data will be retrieved</li>
+</ul>
+<h4 id="output-variables_2">Output / Variables</h4>
+<p>Returns an <code>OutputMessage</code>, of the following datframe:</p>
+<pre><code>measurements: [
+  deviceId
+  timestamp
+  is_file
+  file
+  volume
+]
 </code></pre></div>
             </div>
         </div>

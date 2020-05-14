@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -253,12 +249,35 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ocr-api" class="nav-link">OCR API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#cloudapiperformocr" class="nav-link">CloudAPI.performOcr</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="ocr-api">OCR API</h1>
+<hr />
+<h2 id="cloudapiperformocr"><em>CloudAPI</em>.<strong>performOcr</strong></h2>
+<p>Performs OCR from camera</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
+<ul>
+<li><code>lang</code>: Language in ISO639-1 standard</li>
+<li><code>file</code>: The file path of the image</li>
+</ul>
+<h4 id="output">Output</h4>
+<p>The TekVariables affected are:</p>
+<ul>
+<li><code>TekVariables.OCR_DETECTION</code>: The string result of OCR</li>
+</ul></div>
             </div>
         </div>
 

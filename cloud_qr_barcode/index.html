@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -253,12 +249,37 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#qrbarcode-detection-api" class="nav-link">QR/Barcode detection API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#cloudapidetectqr-cloudapidetectbarcode" class="nav-link">CloudAPI.detectQr / CloudAPI.detectBarcode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="qrbarcode-detection-api">QR/Barcode detection API</h1>
+<hr />
+<h2 id="cloudapidetectqr-cloudapidetectbarcode"><em>CloudAPI</em>.<strong>detectQr</strong> / <em>CloudAPI</em>.<strong>detectBarcode</strong></h2>
+<p>Detects QR codes / Barcodes from camera.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
+<ul>
+<li><code>file</code>: The file path of the image</li>
+</ul>
+<h4 id="output">Output</h4>
+<p>The TekVariables affected are:</p>
+<ul>
+<li><code>TekVariables.QR_DETECTION_DETECTED</code>: Bool value denoting the detection success</li>
+<li><code>TekVariables.QR_DETECTION</code>: The QR data</li>
+<li><code>TekVariables.BARCODE_DETECTION_DETECTED</code>: The number of faces detected</li>
+<li><code>TekVariables.BARCODE_DETECTION</code>: The Barcode data</li>
+</ul></div>
             </div>
         </div>
 

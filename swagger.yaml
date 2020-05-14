@@ -1,0 +1,1524 @@
+---
+swagger: "2.0"
+info:
+  description: "fitpad"
+  version: "1.0.0"
+  title: "fitpad"
+paths:
+
+  /performUpdate:
+    put:
+      tags:
+      - "default_controller"
+      description: "Request to get updates from cloud"
+      operationId: "controllers.default_controller.perform_update_put"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /syncWithCloud:
+    put:
+      tags:
+      - "default_controller"
+      description: "Request to synchronize with cloud"
+      operationId: "controllers.default_controller.sync_with_cloud_put"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /masterControllerInformation:
+    get:
+      tags:
+      - "default_controller"
+      description: "Checks if the master controller is alive"
+      operationId: "controllers.default_controller.master_controller_information_get"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /masterControllerBatteries:
+    get:
+      tags:
+      - "default_controller"
+      description: "Checks if the master controller is alive"
+      operationId: "controllers.default_controller.master_controller_batteries_get"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /masterControllerInformationIndexPage:
+    get:
+      tags:
+      - "default_controller"
+      description: "Checks if the master controller is alive"
+      operationId: "controllers.default_controller.master_controller_information_index_page_get"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /stopExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Stops an exercise"
+      operationId: "controllers.default_controller.stop_exercise_put"
+      parameters: []
+      responses:
+        200:
+          description: "Job done"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exportXlsUsers:
+    put:
+      tags:
+      - "default_controller"
+      description: "Exports an xls file containing users information"
+      operationId: "controllers.default_controller.export_xls_users_put"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+          schema:
+            type: file
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exportXlsGroups:
+    put:
+      tags:
+      - "default_controller"
+      description: "Exports an xls file containing groups information"
+      operationId: "controllers.default_controller.export_xls_groups_put"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+          schema:
+            type: file
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exportXlsStatistics:
+    put:
+      tags:
+      - "default_controller"
+      description: "Exports an xls file containing user statistics information"
+      operationId: "controllers.default_controller.export_xls_statistics_put"
+      parameters:
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            type: file
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exportGroupStatistics:
+    put:
+      tags:
+      - "default_controller"
+      description: "Exports an xls file containing user statistics information for a group"
+      operationId: "controllers.default_controller.export_group_statistics_put"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            type: file
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exportXlsExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Exports an xls file containing an exercise statistics information"
+      operationId: "controllers.default_controller.export_xls_exercise_put"
+      parameters:
+      - name: "exercise_id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            type: file
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+
+  /executeManualOperation:
+    put:
+      tags:
+      - "default_controller"
+      description: "Dont use this!"
+      operationId: "controllers.default_controller.execute_manual_operation_put"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /aliveMc:
+    get:
+      tags:
+      - "default_controller"
+      description: "Checks if the master controller is alive"
+      operationId: "controllers.default_controller.alive_mc_get"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getRstats:
+    get:
+      tags:
+      - "default_controller"
+      description: "Returns stats for remedes system"
+      operationId: "controllers.default_controller.get_rstats_get"
+      parameters: []
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /createGroup:
+    put:
+      tags:
+      - "default_controller"
+      description: "Create a new group"
+      operationId: "controllers.default_controller.create_group_put"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /setTime:
+    put:
+      tags:
+      - "default_controller"
+      description: "Sets the master controller time"
+      operationId: "controllers.default_controller.set_time_put"
+      parameters:
+      - name: "set_date"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "set_hour"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "set_minute"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /updateExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Update an exercises description"
+      operationId: "controllers.default_controller.update_exercise_put"
+      parameters:
+      - name: "id"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "comments"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "category"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /deleteGroup:
+    put:
+      tags:
+      - "default_controller"
+      description: "Delete a group"
+      operationId: "controllers.default_controller.delete_group_put"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /switchOwner:
+    put:
+      tags:
+      - "default_controller"
+      description: "Switches owners"
+      operationId: "controllers.default_controller.switch_owner_put"
+      parameters:
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /findPads:
+    get:
+      tags:
+      - "default_controller"
+      description: "Autofind pads"
+      operationId: "controllers.default_controller.find_pads_get"
+      parameters:
+      - name: "scanTime"
+        in: "query"
+        description: "None"
+        required: true
+        type: "number"
+      - name: "scan"
+        in: "query"
+        description: "None"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: "The pads' IPs"
+          schema:
+            $ref: "#/definitions/ArrayString"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /activatePad:
+    put:
+      tags:
+      - "default_controller"
+      description: "Autofind pads"
+      operationId: "controllers.default_controller.activate_pad_put"
+      parameters:
+      - name: "activate"
+        in: "query"
+        description: "None"
+        required: true
+        type: "number"
+      - name: "pad"
+        in: "query"
+        description: "None"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: "Nada"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /testPad:
+    put:
+      tags:
+      - "default_controller"
+      description: "Test a pad"
+      operationId: "controllers.default_controller.test_pad_put"
+      parameters:
+      - name: "pad"
+        in: "query"
+        description: "None"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: "Nada"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /deleteGroupFromUser:
+    put:
+      tags:
+      - "default_controller"
+      description: "Deletes a group from a user"
+      operationId: "controllers.default_controller.delete_group_from_user_put"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      - name: "groupname"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Nada"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /addGroupToUser:
+    put:
+      tags:
+      - "default_controller"
+      description: "Adds a group to a user"
+      operationId: "controllers.default_controller.add_group_to_user_put"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      - name: "groupname"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Nada"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getUserComparison:
+    get:
+      tags:
+      - "default_controller"
+      description: "Returns statistics for comparison between two users"
+      operationId: "controllers.default_controller.get_user_comparison_get"
+      parameters:
+      - name: "user_1"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      - name: "user_2"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Nada"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getUserGroupComparison:
+    get:
+      tags:
+      - "default_controller"
+      description: "Returns statistics for user 2 group comparison"
+      operationId: "controllers.default_controller.get_user_group_comparison_get"
+      parameters:
+      - name: "user"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      - name: "group"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Nada"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getGroupsComparison:
+    get:
+      tags:
+      - "default_controller"
+      description: "Returns group 2 group comparison statistics"
+      operationId: "controllers.default_controller.get_groups_comparison_get"
+      parameters:
+      - name: "group1"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      - name: "group2"
+        in: "query"
+        description: "None"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Nada"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getGroups:
+    get:
+      tags:
+      - "default_controller"
+      description: "Get all groups"
+      operationId: "controllers.default_controller.get_groups_get"
+      responses:
+        200:
+          description: "Nada"
+          schema:
+            $ref: "#/definitions/ArrayString"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getUsers:
+    get:
+      tags:
+      - "default_controller"
+      description: "Return the owner's users"
+      operationId: "controllers.default_controller.get_users_get"
+      parameters:
+        - name: "owner"
+          in: "query"
+          required: true
+          description: "None"
+          type: "string"
+      responses:
+        200:
+          description: "The list of usernames"
+          schema:
+            $ref: '#/definitions/ArrayString'
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: '#/definitions/Error'
+  /getLeaderboard:
+    get:
+      tags:
+      - "default_controller"
+      description: "Returns a leaderboard"
+      operationId: "controllers.default_controller.get_leaderboard_get"
+      parameters: []
+      responses:
+        200:
+          description: "The list of usernames"
+          schema:
+            $ref: '#/definitions/ArrayString'
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: '#/definitions/Error'
+
+  /getExercises:
+    get:
+      tags:
+      - "default_controller"
+      description: "Returns the user's exercises"
+      operationId: "controllers.default_controller.get_exercises_get"
+      parameters:
+        - name: "username"
+          in: "query"
+          required: true
+          description: "None"
+          type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ArrayString"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getTemplateExercises:
+    get:
+      tags:
+      - "default_controller"
+      description: "Gets template exercises"
+      operationId: "controllers.default_controller.get_template_exercises_get"
+      parameters: []
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ArrayString"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getPredefinedExercises:
+    get:
+      tags:
+      - "default_controller"
+      description: "Gets predefined exercises"
+      operationId: "controllers.default_controller.get_predefined_exercises_get"
+      parameters: []
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ArrayString"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getAutoTemplateExercises:
+    get:
+      tags:
+      - "default_controller"
+      description: "Gets auto template exercises"
+      operationId: "controllers.default_controller.get_auto_template_exercises_get"
+      parameters: []
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ArrayString"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getPatternExercises:
+    get:
+      tags:
+      - "default_controller"
+      description: "Gets auto template exercises"
+      operationId: "controllers.default_controller.get_pattern_exercises_get"
+      parameters: []
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ArrayString"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /rearrangePads:
+    put:
+      tags:
+      - "default_controller"
+      description: "Alters pads IDs according to IPs"
+      operationId: "controllers.default_controller.rearrange_pads_put"
+      parameters:
+      - in: "body"
+        name: "pads"
+        required: true
+        schema:
+          $ref: "#/definitions/Pads"
+      responses:
+        200:
+          description: "The results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /saveManualExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Saves an exercise"
+      operationId: "controllers.default_controller.save_manual_exercise_put"
+      parameters:
+      - in: "body"
+        name: "params"
+        required: true
+        schema:
+          $ref: "#/definitions/ParametersManualExercise"
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "description"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "category"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "inverse_first"
+        in: "query"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ArrayString"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /getAchievements:
+    get:
+      tags:
+      - "default_controller"
+      description: "Gets achievements for a user"
+      operationId: "controllers.default_controller.get_achievements_get"
+      parameters:
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /startAutomaticExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Starts the experiment"
+      operationId: "controllers.default_controller.start_automatic_exercise_put"
+      parameters:
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "params"
+        required: true
+        schema:
+          $ref: "#/definitions/ParametersExercise"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            $ref: "#/definitions/Results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /startPatternExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Starts the experiment"
+      operationId: "controllers.default_controller.start_pattern_exercise_put"
+      parameters:
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "params"
+        required: true
+        schema:
+          $ref: "#/definitions/PatternExercise"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            $ref: "#/definitions/Results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /saveAutomaticTemplate:
+    put:
+      tags:
+      - "default_controller"
+      description: "Saves an automatic template exercise"
+      operationId: "controllers.default_controller.save_automatic_template_put"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "description"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "category"
+        in: "query"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "params"
+        required: true
+        schema:
+          $ref: "#/definitions/ParametersExercise"
+      responses:
+        200:
+          description: "Nothing"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /savePatternTemplate:
+    put:
+      tags:
+      - "default_controller"
+      description: "Saves an automatic template exercise"
+      operationId: "controllers.default_controller.save_pattern_template_put"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "description"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "category"
+        in: "query"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "params"
+        required: true
+        schema:
+          $ref: "#/definitions/PatternExercise"
+      responses:
+        200:
+          description: "Nothing"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /startManual:
+    put:
+      tags:
+      - "default_controller"
+      description: "Starts the experiment"
+      operationId: "controllers.default_controller.start_manual_put"
+      parameters:
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "steps"
+        required: true
+        schema:
+          $ref: "#/definitions/Steps"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            $ref: "#/definitions/Results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exportPdf:
+    put:
+      tags:
+      - "default_controller"
+      description: "Exports a pdf file"
+      operationId: "controllers.default_controller.export_pdf_put"
+      parameters:
+      - in: "body"
+        name: "data"
+        required: true
+        schema:
+          $ref: "#/definitions/Export"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            type: file
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+
+  # This gets the results and the commentary, achievements etc
+  /getResults:
+    get:
+      tags:
+      - "default_controller"
+      description: "Gets the last results"
+      operationId: "controllers.default_controller.get_results_get"
+      parameters:
+      - name: "id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            $ref: "#/definitions/Results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+
+  # This gets the results and the commentary, achievements etc
+  /getManualSteps:
+    get:
+      tags:
+      - "default_controller"
+      description: "Gets the last results"
+      operationId: "controllers.default_controller.get_manual_steps_get"
+      parameters:
+      - name: "id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "The results"
+          schema:
+            $ref: "#/definitions/Results"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+
+  # This gets only the results
+  # /getExerciseResults:
+  #   get:
+  #     tags:
+  #     - "default_controller"
+  #     description: "Gets results of an exercise"
+  #     operationId: "controllers.default_controller.get_exercise_results_get"
+  #     parameters:
+  #     - name: "id"
+  #       in: "query"
+  #       required: true
+  #       type: "number"
+  #     responses:
+  #       200:
+  #         description: "The results"
+  #         schema:
+  #           $ref: "#/definitions/Results"
+  #       default:
+  #         description: "Unexpected error"
+  #         schema:
+  #           $ref: "#/definitions/Error"
+
+  /deleteExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Deletes a template exercise"
+      operationId: "controllers.default_controller.delete_exercise_put"
+      parameters:
+      - name: "id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /deleteAutoTemplateExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Deletes a auto template exercise"
+      operationId: "controllers.default_controller.delete_auto_exercise_put"
+      parameters:
+      - name: "id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /deletePatternExercise:
+    put:
+      tags:
+      - "default_controller"
+      description: "Deletes a auto template exercise"
+      operationId: "controllers.default_controller.delete_pattern_exercise_put"
+      parameters:
+      - name: "id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /deleteUser:
+    put:
+      tags:
+      - "default_controller"
+      description: "Deletes a user"
+      operationId: "controllers.default_controller.delete_user_put"
+      parameters:
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /storeUser:
+    post:
+      tags:
+      - "default_controller"
+      description: "Stores a user in the database"
+      operationId: "controllers.default_controller.store_user_post"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "surname"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "email"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "weight"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "height"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "gender"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "birthday"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "owner"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Nothing"
+          schema:
+            type: "string"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /updateUser:
+    post:
+      tags:
+      - "default_controller"
+      description: "Updates a user in the database"
+      operationId: "controllers.default_controller.update_user_post"
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "surname"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "username"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "email"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "weight"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "height"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "gender"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "birthday"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "owner"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Nothing"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exerciseResultFailureReasons:
+    put:
+      tags:
+      - "default_controller"
+      description: "Specifies reasons for failure"
+      operationId: "controllers.default_controller.exercise_result_failure_reasons_put"
+      parameters:
+      - name: "exercise_id"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "fatigue"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "anxiety"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "dissapointment"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "cognitive_deficits"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "wrong_instructions"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "body_weakness"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "sensory_deficits"
+        in: "query"
+        required: true
+        type: "number"
+      - name: "stress"
+        in: "query"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: "Nothing"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exerciseResultGeneralComments:
+    put:
+      tags:
+      - "default_controller"
+      description: "Specifies general comments"
+      operationId: "controllers.default_controller.exercise_result_general_comments_put"
+      parameters:
+      - name: "exercise_id"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "comments"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Nothing"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+  /exerciseResultCustomScoring:
+    put:
+      tags:
+      - "default_controller"
+      description: "Specifies general comments"
+      operationId: "controllers.default_controller.exercise_result_custom_scoring_put"
+      parameters:
+      - in: "body"
+        name: "params"
+        required: true
+        schema:
+          $ref: "#/definitions/CustomScores"
+      responses:
+        200:
+          description: "Nothing"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+definitions:
+  CustomScores:
+    required:
+    - "exercise_id"
+    - "score_names"
+    - "scores"
+    properties:
+      exercise_id:
+        type: "string"
+      score_names:
+        $ref: "#/definitions/ArrayString"
+      scores:
+        $ref: "#/definitions/ArrayNumber"
+  ArrayString:
+    type: "array"
+    items:
+      type: "string"
+  ArrayNumber:
+    type: "array"
+    items:
+      type: "number"
+  Results:
+    required:
+    - "activationTimes"
+    - "errors"
+    - "responseTimes"
+    properties:
+      activationTimes:
+        $ref: "#/definitions/ArrayString"
+      responseTimes:
+        $ref: "#/definitions/ArrayString"
+      errors:
+        $ref: "#/definitions/ArrayString"
+  Pads:
+    required:
+    - "ips"
+    - "padIds"
+    properties:
+      padIds:
+        $ref: "#/definitions/ArrayNumber"
+      ips:
+        $ref: "#/definitions/ArrayString"
+  Steps:
+    required:
+    - "actDeactTime"
+    - "inverse_first"
+    - "actTime"
+    - "brightness"
+    - "templateid"
+    - "color"
+    - "hangTime"
+    - "ids"
+    - "maxActDist"
+    - "minActDist"
+    - "minValidDeactTime"
+    properties:
+      ids:
+        $ref: "#/definitions/ArrayNumber"
+      actTime:
+        $ref: "#/definitions/ArrayNumber"
+      actDeactTime:
+        $ref: "#/definitions/ArrayNumber"
+      minActDist:
+        $ref: "#/definitions/ArrayNumber"
+      maxActDist:
+        $ref: "#/definitions/ArrayNumber"
+      hangTime:
+        $ref: "#/definitions/ArrayNumber"
+      color:
+        $ref: "#/definitions/ArrayString"
+      brightness:
+        $ref: "#/definitions/ArrayNumber"
+      inverse_first:
+        type: "number"
+      templateid:
+        type: "string"
+      minValidDeactTime:
+        $ref: "#/definitions/ArrayNumber"
+
+  Export:
+    required:
+    - "username"
+    - "exportExerciseTable"
+    - "exportContinuous"
+    - "exportDifficulty"
+    - "exportReflexes"
+    - "exportConcentration"
+    - "exportParameters"
+    - "exportSteps"
+    - "exportAllExercises"
+    - "exportAllUsers"
+    - "exportAllGroups"
+    - "exportExercisesList"
+    - "exportUsersList"
+    - "exportGroupsList"
+    properties:
+      username:
+        type: "string"
+      exportExerciseTable:
+        type: "number"
+        format: "int32"
+      exportContinuous:
+        type: "number"
+        format: "int32"
+      exportDifficulty:
+        type: "number"
+        format: "int32"
+      exportReflexes:
+        type: "number"
+        format: "int32"
+      exportConcentration:
+        type: "number"
+        format: "int32"
+      exportParameters:
+        type: "number"
+        format: "int32"
+      exportSteps:
+        type: "number"
+        format: "int32"
+      exportAllExercises:
+        type: "number"
+        format: "int32"
+      exportAllUsers:
+        type: "number"
+        format: "int32"
+      exportAllGroups:
+        type: "number"
+        format: "int32"
+      exportExercisesList:
+        $ref: "#/definitions/ArrayString"
+      exportUsersList:
+        $ref: "#/definitions/ArrayString"
+      exportGroupsList:
+        $ref: "#/definitions/ArrayString"
+
+  ParametersExercise:
+    required:
+    - "totalTime"
+    - "brightness"
+    - "minDist"
+    - "maxDist"
+    - "minAct"
+    - "maxAct"
+    - "minDelay"
+    - "maxDelay"
+    - "validColors"
+    - "invalidColors"
+    - "training"
+    - "minimum_valid_deactivation"
+    - "official"
+    - "overall_sound"
+    - "pads_placement"
+    - "inverse_first"
+    properties:
+      totalTime:
+        type: "number"
+        format: "int32"
+      brightness:
+        type: "number"
+        format: "int32"
+      minDist:
+        type: "number"
+      maxDist:
+        type: "number"
+      minAct:
+        type: "number"
+      maxAct:
+        type: "number"
+      minDelay:
+        type: "number"
+      maxDelay:
+        type: "number"
+      validColors:
+        $ref: "#/definitions/Steps"
+      invalidColors:
+        $ref: "#/definitions/ArrayString"
+      training:
+        type: "number"
+      minimum_valid_deactivation:
+        type: "number"
+      official:
+        type: "number"
+      overall_sound:
+        type: "number"
+      inverse_first:
+        type: "number"
+      pads_placement:
+        $ref: "#/definitions/PadsPlacement"
+
+  PatternExercise:
+    required:
+    - "brightness"
+    - "minDist"
+    - "maxDist"
+    - "act"
+    - "validColors"
+    - "invalidColors"
+    - "training"
+    - "random_order"
+    - "reverse_order"
+    - "order"
+    - "max_sub_score"
+    - "minimum_valid_deactivation"
+    - "official"
+    - "pads_placement"
+    - "pads_order"
+    properties:
+      brightness:
+        type: "number"
+        format: "int32"
+      minDist:
+        type: "number"
+      maxDist:
+        type: "number"
+      act:
+        type: "number"
+      validColors:
+        $ref: "#/definitions/ArrayString"
+      invalidColors:
+        $ref: "#/definitions/ArrayString"
+      training:
+        type: "number"
+      minimum_valid_deactivation:
+        type: "number"
+      official:
+        type: "number"
+      random_order:
+        type: "number"
+      reverse_order:
+        type: "number"
+      order:
+        type: "number"
+      max_sub_score:
+        type: "number"
+      pads_placement:
+        $ref: "#/definitions/PadsPlacement"
+      pads_order:
+        $ref: "#/definitions/ArrayNumber"
+
+  ParametersManualExercise:
+    required:
+    - "steps"
+    - "pads_placement"
+    properties:
+      steps:
+        $ref: "#/definitions/Steps"
+      pads_placement:
+        $ref: "#/definitions/PadsPlacement"
+
+  PadsPlacement:
+    type: "object"
+    properties:
+      scale:
+        type: "number"
+      pads:
+        type: "number"
+      places:
+        $ref: "#/definitions/ArrayPlaces"
+  ArrayPlaces:
+    type: "array"
+    items:
+      $ref: "#/definitions/Place"
+  Place:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+      x:
+        type: "number"
+      y:
+        type: "number"
+      connections:
+        $ref: "#/definitions/ArrayNumber"
+
+  ArraySteps:
+    type: "array"
+    items:
+      $ref: "#/definitions/Steps"
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+      fields:
+        type: "string"

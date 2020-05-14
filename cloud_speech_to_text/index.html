@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -253,12 +249,35 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#speech-2-text-api" class="nav-link">Speech-2-text API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#cloudapispeechtotext" class="nav-link">CloudAPI.speechToText</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="speech-2-text-api">Speech-2-text API</h1>
+<hr />
+<h2 id="cloudapispeechtotext"><em>CloudAPI</em>.<strong>speechToText</strong></h2>
+<p>Performs automatic speech recognition in an audio file.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
+<ul>
+<li><code>lang</code>: The language of recognition</li>
+<li><code>file</code>: The file path of the audio</li>
+</ul>
+<h4 id="output">Output</h4>
+<p>The TekVariables affected are:</p>
+<ul>
+<li><code>TekVariables.SPEECH_TO_TEXT</code>: The string result of speech to text</li>
+</ul></div>
             </div>
         </div>
 

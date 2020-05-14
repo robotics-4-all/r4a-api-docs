@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -254,8 +250,16 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#pan-tilt-api" class="nav-link">Pan-tilt API</a>
+            <li class="nav-item" data-level="1"><a href="#pan-tilt-api" class="nav-link">Pan-tilt API</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#robotapigetpantilt" class="nav-link">RobotAPI.getPanTilt</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#robotapimovepantilt" class="nav-link">RobotAPI.movePanTilt</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -263,19 +267,38 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="pan-tilt-api"><strong>Pan-tilt API</strong></h2>
+<h1 id="pan-tilt-api"><strong>Pan-tilt API</strong></h1>
 <hr />
-<h3 id="robotapigetpantilt"><em>RobotAPI</em>.<strong>getPanTilt</strong></h3>
+<h2 id="robotapigetpantilt"><em>RobotAPI</em>.<strong>getPanTilt</strong></h2>
+<p>Gets Pan/Tilt angles from memory.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
 <ul>
-<li>fromIndex</li>
-<li>toindex</li>
+<li><code>deviceId</code>: The id of a <code>Devices.PAN_TILT</code> device</li>
+<li><code>fromIndex</code>: From what index the data will be retrieved</li>
+<li><code>toIndex</code>: To  what index the data will be retrieved</li>
 </ul>
+<h4 id="output">Output</h4>
+<p>An <code>OutputMessage</code>, containing in <code>data</code>:</p>
+<pre><code>measurements:
+  deviceId,
+  timestamp,
+  yaw,
+  pitch
+</code></pre>
+
 <hr />
-<h3 id="robotapimovepantilt"><em>RobotAPI</em>.<strong>movePanTilt</strong></h3>
+<h2 id="robotapimovepantilt"><em>RobotAPI</em>.<strong>movePanTilt</strong></h2>
+<p>Sets angles for the pan/tilt system</p>
+<h4 id="input-parameters_1">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
 <ul>
-<li>yaw</li>
-<li>pitch</li>
-</ul></div>
+<li><code>deviceId</code>: The id of a <code>Devices.PAN_TILT</code> device</li>
+<li><code>yaw</code>: The desired yaw angle</li>
+<li><code>pitch</code>: The desired pitch angle</li>
+</ul>
+<h4 id="output_1">Output</h4>
+<p>Physical: The pan-tilt mechanism moves to the desired angles.</p></div>
             </div>
         </div>
 

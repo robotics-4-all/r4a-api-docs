@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -254,8 +250,12 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#imu-api" class="nav-link">IMU API</a>
+            <li class="nav-item" data-level="1"><a href="#imu-api" class="nav-link">IMU API</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#robotapigetimumeasurement" class="nav-link">RobotAPI.getImuMeasurement</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -263,13 +263,39 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="imu-api"><strong>IMU API</strong></h2>
+<h1 id="imu-api"><strong>IMU API</strong></h1>
 <hr />
-<h3 id="robotapigetimumeasurement"><em>RobotAPI</em>.<strong>getImuMeasurement</strong></h3>
+<h2 id="robotapigetimumeasurement"><em>RobotAPI</em>.<strong>getImuMeasurement</strong></h2>
+<p>Gets last IMU measurements from memory.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
 <ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul></div>
+<li><code>deviceId</code>: The id of a <code>Devices.IMU</code> device</li>
+<li><code>fromIndex</code>: From what index the data will be retrieved</li>
+<li><code>toIndex</code>: To  what index the data will be retrieved</li>
+</ul>
+<h4 id="output">Output</h4>
+<p>An <code>OutputMessage</code>, containing in <code>data</code>:</p>
+<pre><code>measurements: [
+  deviceId,
+  timestamp,
+  acceleration: {
+    x,
+    y,
+    z
+  }
+  compass: {
+    yaw,
+    pitch,
+    roll
+  }
+  gyroscope: {
+    yaw,
+    pitch,
+    roll
+  }
+]
+</code></pre></div>
             </div>
         </div>
 

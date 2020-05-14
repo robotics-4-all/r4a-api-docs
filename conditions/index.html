@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -254,7 +250,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#the-conditions-class" class="nav-link">The conditions class</a>
+            <li class="nav-item" data-level="1"><a href="#r4a-conditions" class="nav-link">R4A Conditions</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#the-condition-class" class="nav-link">The Condition class</a>
               <ul class="nav flex-column">
@@ -271,7 +267,7 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="the-conditions-class">The conditions class</h1>
+<h1 id="r4a-conditions">R4A Conditions</h1>
 <p>In R4A APIs you can create conditions using two classes, <code>Condition</code> that denotes a single condition or <code>ConditionGroup</code>, denoting a composite condition. Let's see both of them in detail.</p>
 <h2 id="the-condition-class">The <code>Condition</code> class</h2>
 <p>The <code>Condition</code> class implements a single condition. The constructor of the class is as follows:</p>
@@ -335,7 +331,7 @@ condition_cg1012  = Condition (
 <li>LogicalOperators.OR</li>
 <li>LogicalOperators.XOR</li>
 </ul>
-<p>Furthermore, conditions can be added using the <code>addCondition(condition, opp)</code> member, where condition must be of type <code>Condition</code> and if <code>opp</code> is True, the negation of the condition shall be tested.</p>
+<p>Furthermore, conditions can be added using the <code>addCondition(condition, opp)</code> member, where condition must be of type <strong><code>Condition</code></strong> or <strong><code>ConditionGroup</code></strong> and if <code>opp</code> is True, the negation of the condition shall be tested.</p>
 <p>An example is the following:</p>
 <pre><code class="python">condition_cg62  = Condition (
   left_operant = &quot;Counter&quot;,

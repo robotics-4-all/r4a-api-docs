@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -254,8 +250,16 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#body-motion-api" class="nav-link">Body motion API</a>
+            <li class="nav-item" data-level="1"><a href="#body-motion-api" class="nav-link">Body motion API</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#robotapimovebody" class="nav-link">RobotAPI.moveBody</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#robotapigetbodyvelocities" class="nav-link">RobotAPI.getBodyVelocities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -263,19 +267,36 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="body-motion-api"><strong>Body motion API</strong></h2>
+<h1 id="body-motion-api"><strong>Body motion API</strong></h1>
 <hr />
-<h3 id="robotapimovebody"><em>RobotAPI</em>.<strong>moveBody</strong></h3>
+<h2 id="robotapimovebody"><em>RobotAPI</em>.<strong>moveBody</strong></h2>
+<p>Moves the robot's chassis</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
 <ul>
-<li>linearVelocity</li>
-<li>rotationalVelocity</li>
+<li><code>linearVelocity</code>: Linear velocity of the differential wheels vehicle</li>
+<li><code>rotationalVelocity</code>: Rotational velocity of the differential wheels vehicle</li>
 </ul>
+<h4 id="output">Output</h4>
+<p>Physical: The robot moves.</p>
 <hr />
-<h3 id="robotapigetbodyvelocities"><em>RobotAPI</em>.<strong>getBodyVelocities</strong></h3>
+<h2 id="robotapigetbodyvelocities"><em>RobotAPI</em>.<strong>getBodyVelocities</strong></h2>
+<p>Gets last chassis velocities from memory.</p>
+<h4 id="input-parameters_1">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
 <ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul></div>
+<li><code>deviceId</code>: The id of a <code>Devices.MOTION</code> device</li>
+<li><code>fromIndex</code>: From what index the data will be retrieved</li>
+<li><code>toIndex</code>: To  what index the data will be retrieved</li>
+</ul>
+<h4 id="output_1">Output</h4>
+<p>An <code>OutputMessage</code>, containing in <code>data</code>:</p>
+<pre><code>measurements:
+  deviceId,
+  timestamp,
+  linearVelocity,
+  rotationalVelocity
+</code></pre></div>
             </div>
         </div>
 

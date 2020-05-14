@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -253,12 +249,39 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#weather-report-api" class="nav-link">Weather report API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#cloudapiweatherreport" class="nav-link">CloudAPI.weatherReport</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="weather-report-api">Weather report API</h1>
+<hr />
+<h2 id="cloudapiweatherreport"><em>CloudAPI</em>.<strong>weatherReport</strong></h2>
+<p>Returns weather information for a specific area / country.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
+<ul>
+<li><code>location</code>: A location (e.g. a city)</li>
+<li><code>country_code</code>: An <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166 country code</a></li>
+</ul>
+<h4 id="output">Output</h4>
+<p>The TekVariables affected are:</p>
+<ul>
+<li><code>TekVariables.WEATHER_REPORT</code>: The full weather report json</li>
+<li><code>TekVariables.WEATHER_REPORT_DESCRIPTION</code>: A literal description</li>
+<li><code>TekVariables.WEATHER_REPORT_TEMPERATURE</code>: The reported temperature</li>
+<li><code>TekVariables.WEATHER_REPORT_PRESSURE</code>: The reported pressure</li>
+<li><code>TekVariables.WEATHER_REPORT_HUMIDITY</code>: The reported humidity</li>
+</ul></div>
             </div>
         </div>
 

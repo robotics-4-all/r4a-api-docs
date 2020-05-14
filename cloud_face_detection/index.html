@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="../tof/" class="dropdown-item">Time-of-flight API</a>
 </li>
                                     
@@ -253,12 +249,35 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#face-detection-api" class="nav-link">Face detection API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#cloudapidetectfacefromimage" class="nav-link">CloudAPI.detectFaceFromImage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="face-detection-api">Face detection API</h1>
+<hr />
+<h2 id="cloudapidetectfacefromimage"><em>CloudAPI</em>.<strong>detectFaceFromImage</strong></h2>
+<p>Detects human faces from camera.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
+<ul>
+<li><code>file</code>: The file path of the image</li>
+</ul>
+<h4 id="output">Output</h4>
+<p>The TekVariables affected are:</p>
+<ul>
+<li><code>TekVariables.DETECT_FACE_DETECTED</code>: Bool value denoting the detection success</li>
+<li><code>TekVariables.DETECT_FACE_DETECTED_NFACES</code>: The number of faces detected</li>
+</ul></div>
             </div>
         </div>
 

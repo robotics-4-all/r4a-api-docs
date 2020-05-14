@@ -106,10 +106,6 @@
 </li>
                                     
 <li>
-    <a href="../linefollower/" class="dropdown-item">Line follower API</a>
-</li>
-                                    
-<li>
     <a href="./" class="dropdown-item active">Time-of-flight API</a>
 </li>
                                     
@@ -227,7 +223,7 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../linefollower/" class="nav-link">
+                                <a rel="prev" href="../encoders/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
@@ -254,8 +250,12 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#time-of-flight-api" class="nav-link">Time-of-flight API</a>
+            <li class="nav-item" data-level="1"><a href="#time-of-flight-api" class="nav-link">Time-of-flight API</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#robotapigettofmeasurement" class="nav-link">RobotAPI.getToFMeasurement</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -263,13 +263,24 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="time-of-flight-api"><strong>Time-of-flight API</strong></h2>
+<h1 id="time-of-flight-api"><strong>Time-of-flight API</strong></h1>
 <hr />
-<h3 id="robotapigettofmeasurement"><em>RobotAPI</em>.<strong>getToFMeasurement</strong></h3>
+<h2 id="robotapigettofmeasurement"><em>RobotAPI</em>.<strong>getToFMeasurement</strong></h2>
+<p>Gets Time-Of-Flight sensors distance measurements from memory.</p>
+<h4 id="input-parameters">Input parameters</h4>
+<p>An <code>InputMessage</code>, containing in <code>data</code>:</p>
 <ul>
-<li>fromIndex</li>
-<li>toindex</li>
-</ul></div>
+<li><code>deviceId</code>: The id of a <code>Devices.TOF</code> device</li>
+<li><code>fromIndex</code>: From what index the data will be retrieved</li>
+<li><code>toIndex</code>: To  what index the data will be retrieved</li>
+</ul>
+<h4 id="output">Output</h4>
+<p>An <code>OutputMessage</code>, containing in <code>data</code>:</p>
+<pre><code>measurements:
+  deviceId,
+  timestamp,
+  value
+</code></pre></div>
             </div>
         </div>
 
