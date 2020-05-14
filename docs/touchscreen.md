@@ -1,8 +1,8 @@
-## **Touch screen API**
+# **Touch screen API**
 
 ---
 
-### *RobotAPI*.**showImage**
+## *RobotAPI*.**showImage**
 
 Shows an image in touch screen
 
@@ -52,7 +52,7 @@ out.print()
 
 ---
 
-### *RobotAPI*.**showOptions**
+## *RobotAPI*.**showOptions**
 
 Shows up to 4 options in the touch screen and waits for a touch.
 
@@ -91,7 +91,7 @@ out.print()
 
 ---
 
-### *RobotAPI*.**showColor**
+## *RobotAPI*.**showColor**
 
 #### Input arguments
 

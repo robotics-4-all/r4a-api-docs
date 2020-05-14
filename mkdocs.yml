@@ -18,7 +18,6 @@ nav:
     - Buttons API: buttons.md
     - Environmental API: env.md
     - Encoders API: encoders.md
-    - Line follower API: linefollower.md
     - Time-of-flight API: tof.md
     - Sonars API: sonars.md
     - Infrared API: irs.md

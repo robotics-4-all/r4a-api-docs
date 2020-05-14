@@ -1,8 +1,8 @@
-## **Microphone API**
+# **Microphone API**
 
 ---
 
-### *RobotAPI*.**recordSound**
+## *RobotAPI*.**recordSound**
 
 This call records a sound from a microphone.
 

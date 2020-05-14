@@ -1,8 +1,8 @@
-## **Camera API**
+# **Camera API**
 
 ---
 
-### *RobotAPI*.**captureImage**
+## *RobotAPI*.**captureImage**
 
 This call captures an image from the camera.
 
@@ -42,7 +42,7 @@ out.print()
 
 ---
 
-### *RobotAPI*.**getImages**
+## *RobotAPI*.**getImages**
 
 Retrieves images from memory.
 

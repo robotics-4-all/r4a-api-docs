@@ -1,8 +1,8 @@
-## **Speakers API**
+# **Speakers API**
 
 ---
 
-### *RobotAPI*.**speak**
+## *RobotAPI*.**speak**
 
 A text-to-speech algorithm is used, in order for the device to "speak" in different languages.
 
@@ -15,7 +15,7 @@ A text-to-speech algorithm is used, in order for the device to "speak" in differ
 
 This call has no output and does not change any TekVariables.
 
-#### Examples ☑
+#### Examples
 
 ```python
 import robot_api
@@ -32,7 +32,7 @@ out = rapi.speak(utilities.InputMessage({
 
 ---
 
-### *RobotAPI*.**replaySound**
+## *RobotAPI*.**replaySound**
 
 This call reproduces a sound from the speakers. The sound can either be a wav file, or a base64-encoded string.
 
@@ -59,4 +59,29 @@ out = rapi.replaySound(utilities.InputMessage({
     'string': '/tmp/tmp.wav',
     'volume': 100
 }))
+```
+---
+
+## *RobotAPI*.**getSound**
+
+Retrieves a soud file from memory, using a specific speaker.
+
+#### Input arguments
+
+- `deviceId`: The id of a `Devices.SPEAKERS` device
+- `fromIndex`: From what index the data will be retrieved
+- `toIndex`: To  what index the data will be retrieved
+
+#### Output / Variables
+
+Returns an `OutputMessage`, of the following datframe:
+
+```
+measurements: [
+  deviceId
+  timestamp
+  is_file
+  file
+  volume
+]
 ```

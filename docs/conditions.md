@@ -1,4 +1,4 @@
-# The conditions class
+# R4A Conditions
 
 In R4A APIs you can create conditions using two classes, `Condition` that denotes a single condition or `ConditionGroup`, denoting a composite condition. Let's see both of them in detail.
 
@@ -78,7 +78,7 @@ Thus, `type` can be one of the following:
 - LogicalOperators.OR
 - LogicalOperators.XOR
 
-Furthermore, conditions can be added using the `addCondition(condition, opp)` member, where condition must be of type `Condition` and if `opp` is True, the negation of the condition shall be tested.
+Furthermore, conditions can be added using the `addCondition(condition, opp)` member, where condition must be of type **`Condition`** or **`ConditionGroup`** and if `opp` is True, the negation of the condition shall be tested.
 
 An example is the following:
 
