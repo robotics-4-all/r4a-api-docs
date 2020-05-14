@@ -1,6 +1,6 @@
 # The CloudAPI
 
-Cloud API offers services / calls, with which you can manipulate the robot/device. As explained [here](../messages), all calls get an [InputMessage](../messages/#inputmessage-class) as input and an [OutputMessage](../messages/#outputmessage-class) as output.
+Cloud API offers cloud services / calls, with which you can add intelligence to your applications. As explained [here](../messages), all calls get an [InputMessage](../messages/#inputmessage-class) as input and an [OutputMessage](../messages/#outputmessage-class) as output.
 
 The contents of this section are:
 
